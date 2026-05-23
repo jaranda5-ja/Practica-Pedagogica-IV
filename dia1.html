@@ -7,256 +7,313 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
-
+/* --- CONFIGURACIÓN GENERAL --- */
 body {
     margin: 0;
+    padding: 0;
     font-family: 'Quicksand', sans-serif;
-    /* Fondo celeste cielo suave de la imagen */
-    background-color: #e2f1f8; 
-    color: #4a3e4d; /* Texto purpúreo/oscuro suave, no negro rígido */
-    line-height: 1.6;
+    background-color: #cbdce6; /* Color de fondo exterior de la app */
+    display: flex;
+    justify-content: center;
 }
 
-/* Encabezado con efecto de bordes ondulados simulados */
-.hero {
-    background: linear-gradient(180deg, #b3e5fc, #e2f1f8);
-    padding: 80px 20px 60px 20px;
+/* Contenedor tipo "Mockup" para imitar el formato vertical de la foto */
+.app-viewport {
+    width: 100%;
+    max-width: 480px; /* Estructura móvil/vertical exacta de tu referencia */
+    background-color: #e5edf0;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- SECCIÓN 1: SECTOR CELESTE (HERO) --- */
+.hero-section {
+    background: linear-gradient(180deg, #bcdce8 0%, #dbeaf0 100%);
+    padding: 40px 20px 60px 20px;
     text-align: center;
     position: relative;
 }
 
-.hero h1 {
+/* Título principal lila */
+.hero-section h1 {
     font-family: 'Fredoka', sans-serif;
-    font-size: 52px;
-    color: #7c5295; /* Color lila/púrpura del título de la imagen */
+    color: #432b57;
+    font-size: 32px;
+    text-transform: uppercase;
     margin: 0 0 10px 0;
-    text-shadow: 2px 2px 0px rgba(255,255,255,0.5);
+    letter-spacing: 1px;
 }
 
-.hero p {
-    font-size: 18px;
-    color: #e57373; /* Color coral/naranja del botón e indicaciones */
+.hero-subtitle {
+    color: #c95d56;
+    font-size: 14px;
     font-weight: 700;
+    text-transform: uppercase;
     margin: 0;
 }
 
-.container {
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
-}
-
-/* Barra de datos de autoría */
-.info {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
+/* Ondas simuladas con clip-path al final de las secciones */
+.wave-separator {
+    height: 25px;
+    background-color: #e9f1f5; /* Conecta con el fondo de la sección media */
+    /* Crea la forma de ondas de nubes repetitivas */
+    clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 85% 60%, 70% 0%, 55% 60%, 40% 0%, 25% 60%, 10% 0%, 0% 60%);
     margin-top: -20px;
-    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
 }
 
-.card-info {
-    background: #ffffff;
-    padding: 10px 18px;
-    border-radius: 50px; /* Completamente redondeado como píldora */
-    box-shadow: 0 8px 15px rgba(124, 82, 149, 0.08);
-    font-size: 14px;
-    font-weight: 700;
-    color: #6a5b6e;
-    border: 2px solid #fff;
+/* --- SECCIÓN 2: CUERPO CENTRAL (CREMA / BLANCO) --- */
+.main-content {
+    background-color: #e9f1f5;
+    padding: 20px;
+    position: relative;
 }
 
-/* Cuadrícula de tarjetas principales (Estilo papel/pergamino) */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
+/* Bloque izquierdo de datos (Día 1, Fecha, etc) estilo papel rasgado */
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.card {
-    background: #fdfbf7; /* Blanco roto/crema como las hojitas de la foto */
-    padding: 30px 25px;
-    /* Bordes ligeramente asimétricos para dar efecto orgánico/papel hecho a mano */
-    border-radius: 20px 30px 25px 20px; 
-    box-shadow: 0 10px 20px rgba(124, 82, 149, 0.06);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(235, 230, 220, 0.7);
+/* Estilo exacto "Papel Pergamino/Rasgado" de los bloques del centro */
+.paper-card {
+    background: #f4eee1; /* Color crema de las hojas del diseño */
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.06);
+    position: relative;
+    border: 1px dashed rgba(67, 43, 87, 0.15);
+    /* Efecto ligeramente irregular en los bordes */
+    filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.05));
 }
 
-.card:hover {
-    transform: translateY(-5px) rotate(1deg); /* Ligera rotación juguetona */
-    box-shadow: 0 15px 25px rgba(124, 82, 149, 0.1);
+.paper-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 100%);
+    pointer-events: none;
 }
 
-.card h3 {
+/* Título enorme "DÍA 1" tal como la imagen */
+.day-title {
     font-family: 'Fredoka', sans-serif;
-    color: #e57373; /* Tonalidad coral */
-    margin-top: 0;
-    font-size: 22px;
+    font-size: 44px;
+    color: #7b4d8d;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
 }
 
-/* Caja de imagen */
-.image-box {
-    margin: 40px 0;
-    border-radius: 40px;
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-list li {
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #3b353e;
+}
+
+.info-list strong {
+    color: #aa4b41;
+    font-family: 'Fredoka', sans-serif;
+    text-transform: uppercase;
+    display: block;
+    font-size: 12px;
+}
+
+/* Estructura para los bloques de texto informativos */
+.block-title {
+    font-family: 'Fredoka', sans-serif;
+    color: #aa4b41; /* Tono rojizo/coral de los títulos de los bloques */
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.paper-card p {
+    font-size: 12px;
+    margin: 0;
+    color: #3b353e;
+    line-height: 1.5;
+}
+
+/* Caja del barco e imagen */
+.image-wrapper {
+    margin: 15px 0;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 15px 30px rgba(74, 62, 77, 0.12);
-    border: 8px solid #ffffff; /* Marco blanco elegante */
+    border: 5px solid #ffffff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.image-box img {
+.image-wrapper img {
     width: 100%;
     display: block;
 }
 
-/* Secciones inferiores (Reflexión y Teoría) */
-.reflexion, .teoria {
-    margin-top: 35px;
-    padding: 35px;
-    background: #fdfbf7;
-    border-radius: 35px;
-    box-shadow: 0 12px 25px rgba(124, 82, 149, 0.06);
+/* --- SECCIÓN 3: SECTOR INFERIOR (MARRÓN OTOÑAL) --- */
+.bottom-wave {
+    height: 25px;
+    background-color: #b0684f; /* Color de la sección inferior */
+    clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 85% 60%, 70% 0%, 55% 60%, 40% 0%, 25% 60%, 10% 0%, 0% 60%);
+    margin-bottom: -1px;
 }
 
-.reflexion {
-    /* En lugar de una línea rígida, usamos un borde superior o lateral amigable */
-    border-left: 8px solid #ffb74d; /* Naranja pastel cálido */
+.footer-section {
+    background-color: #b0684f; /* Color teja/marrón exacto de la base */
+    padding: 30px 20px;
+    color: #ffffff;
 }
 
-.teoria {
-    border-left: 8px solid #81c784; /* Verde pastel natural (como las hojas de abajo en la foto) */
-}
-
-.reflexion h3, .teoria h3 {
+.footer-section h3 {
     font-family: 'Fredoka', sans-serif;
-    margin-top: 0;
-    font-size: 24px;
-    color: #7c5295;
+    color: #f7d3a1; /* Letras amarillas/crema del pie */
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+    letter-spacing: 0.5px;
 }
 
-/* Bloque de frases */
-.frases {
+.footer-section p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #fdf5eb;
+    margin: 0 0 25px 0;
+}
+
+/* Citas de la parte de abajo */
+.quote-box {
+    border-top: 1px dashed rgba(255, 255, 255, 0.3);
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.quote-item {
+    font-size: 12px;
+    font-style: italic;
+    color: #fcecd7;
+    margin-bottom: 8px;
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Botones adaptados al estilo circular de abajo */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
     margin-top: 30px;
 }
 
-.frase {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(124, 82, 149, 0.05);
-    font-size: 15px;
-    font-style: italic;
-    flex: 1;
-    min-width: 250px;
-    border-bottom: 4px solid #b3e5fc;
-}
-
-/* Botones de navegación */
-.nav {
-    margin-top: 50px;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.btn {
-    padding: 14px 28px;
-    border-radius: 50px;
-    background: #e57373; /* Coral idéntico al botón principal "Узнать больше" */
+.btn-custom {
+    background-color: #ec755a; /* Botón naranja coral brillante */
     color: white;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    box-shadow: 0 8px 15px rgba(229, 115, 115, 0.3);
-    transition: all 0.2s ease;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
 }
 
-.btn:hover {
-    background: #d32f2f;
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(229, 115, 115, 0.4);
+.btn-custom:hover {
+    transform: scale(1.03);
 }
-
 </style>
 </head>
 <body>
 
-<div class="hero">
-    <h1>Día 1</h1>
-    <p>Aprendizaje didáctico a través del arte</p>
-</div>
+<div class="app-viewport">
 
-<div class="container">
+    <div class="hero-section">
+        <h1>Bilingvo</h1>
+        <p class="hero-subtitle">Aprendizaje didáctico a través del arte</p>
+    </div>
+    
+    <div class="wave-separator"></div>
 
-<div class="info">
-    <div class="card-info">📆 09 de Abril</div>
-    <div class="card-info">📍 IETI Donald Rodrigo Tafur sede Francisco J. Ruiz</div>
-    <div class="card-info">👩‍🏫 Observación</div>
-    <div class="card-info">👤 Valentina Caldon López</div>
-</div>
+    <div class="main-content">
+        <div class="main-layout">
+            
+            <div class="paper-card">
+                <h2 class="day-title">Día 1</h2>
+                <ul class="info-list">
+                    <li><strong>Fecha:</strong> 09 de Abril</li>
+                    <li><strong>Lugar:</strong> IETI Donald Rodrigo Tafur sede Francisco J. Ruiz</li>
+                    <li><strong>Tipo de Actividad:</strong> Observación</li>
+                    <li><strong>Participante:</strong> Valentina Caldon López</li>
+                </ul>
+            </div>
 
-<div class="grid">
+            <div class="paper-card">
+                <h3 class="block-title">👀 Observación</h3>
+                <p>
+                    La docente desarrolló una actividad enfocada en el aprendizaje mediante el arte y la exploración de figuras geométricas, donde los estudiantes organizaron figuras de diferentes tamaños y colores sobre cartulina.
+                </p>
+            </div>
 
-<div class="card">
-    <h3>👀 Observación</h3>
-    <p>
-    La docente desarrolló una actividad enfocada en el aprendizaje mediante el arte y la exploración de figuras geométricas, donde los estudiantes organizaron figuras de diferentes tamaños y colores sobre cartulina.
-    </p>
-</div>
+            <div class="image-wrapper">
+                <img src="dia1.jpg" alt="Actividad del día">
+            </div>
 
-<div class="card">
-    <h3>🎯 Actividad</h3>
-    <p>
-    La docente explicó las instrucciones con claridad, usó ejemplos visuales y acompañó constantemente a los estudiantes, promoviendo la creatividad y la organización del espacio.
-    </p>
-</div>
+            <div class="paper-card">
+                <h3 class="block-title">🎯 Actividad</h3>
+                <p>
+                    La docente explicó las instrucciones con claridad, usó ejemplos visuales y acompañó constantemente a los estudiantes, promoviendo la creatividad y la organización del espacio.
+                </p>
+            </div>
 
-<div class="card">
-    <h3>🤝 Interacción</h3>
-    <p>
-    Se evidenció trabajo colaborativo, diálogo entre estudiantes y un ambiente de confianza donde los niños compartieron materiales y expresaron satisfacción por sus creaciones.
-    </p>
-</div>
+            <div class="paper-card">
+                <h3 class="block-title">🤝 Interacción</h3>
+                <p>
+                    Se evidenció trabajo colaborativo, diálogo entre estudiantes y un ambiente de confianza donde los niños compartieron materiales y expresaron satisfacción por sus creaciones.
+                </p>
+            </div>
 
-</div>
+        </div>
+    </div>
 
-<div class="image-box">
-    <img src="dia1.jpg" alt="Actividad del día">
-</div>
+    <div class="bottom-wave"></div>
 
-<div class="reflexion">
-    <h3>🌱 Reflexión pedagógica</h3>
-    <p>
-    La experiencia permitió comprender que la didáctica en educación inicial debe ser activa, creativa y significativa. El arte se consolida como herramienta clave para el desarrollo emocional, cognitivo y creativo de los estudiantes.
-    <br><br>
-    Además, se reconoce la importancia de generar ambientes seguros y afectivos que favorezcan la exploración y el aprendizaje autónomo.
-    </p>
-</div>
+    <div class="footer-section">
+        
+        <h3>🌱 Reflexión pedagógica</h3>
+        <p>
+            La experiencia permitió comprender que la didáctica en educación inicial debe ser activa, creativa y significativa. El arte se consolida como herramienta clave para el desarrollo emocional, cognitivo y creativo de los estudiantes.
+            <br><br>
+            Además, se reconoce la importancia de generar ambientes seguros y afectivos que favorezcan la exploración y el aprendizaje autónomo.
+        </p>
 
-<div class="teoria">
-    <h3>📚 Sustento teórico</h3>
-    <p>
-    Desde el enfoque constructivista, Jean Piaget plantea que el conocimiento se construye a partir de la interacción con el entorno. Asimismo, Lev Vygotsky resalta la importancia de la interacción social y el acompañamiento docente en el aprendizaje dentro de la zona de desarrollo próximo.
-    </p>
-</div>
+        <h3>📚 Sustento teórico</h3>
+        <p>
+            Desde el enfoque constructivista, Jean Piaget plantea que el conocimiento se construye a partir de la interacción con el entorno. Asimismo, Lev Vygotsky resalta la importancia de la interacción social y el acompañamiento docente en el aprendizaje dentro de la zona de desarrollo próximo.
+        </p>
 
-<div class="frases">
-    <div class="frase">💬 “El conocimiento se construye a través de la experiencia”</div>
-    <div class="frase">💬 “El aprendizaje inicia en lo social y luego se interioriza”</div>
-</div>
+        <div class="quote-box">
+            <div class="quote-item">💬 “El conocimiento se construye a través de la experiencia”</div>
+            <div class="quote-item">💬 “El aprendizaje inicia en lo social y luego se interioriza”</div>
+        </div>
 
-<div class="nav">
-    <a href="index.html" class="btn">🏠 Inicio</a>
-    <a href="dia2.html" class="btn">➡ Día 2</a>
-</div>
+        <div class="nav-buttons">
+            <a href="index.html" class="btn-custom">🏠 Inicio</a>
+            <a href="dia2.html" class="btn-custom">➡ Día 2</a>
+        </div>
+
+    </div>
 
 </div>
 
