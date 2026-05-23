@@ -5,199 +5,104 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Día 1</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
 <style>
 
-body{
-    margin:0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(180deg, #eef5ff, #ffffff);
-    color:#333;
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    /* Fondo celeste cielo suave de la imagen */
+    background-color: #e2f1f8; 
+    color: #4a3e4d; /* Texto purpúreo/oscuro suave, no negro rígido */
+    line-height: 1.6;
 }
 
-.hero{
-    background: linear-gradient(135deg, #a8d8ff, #d4f1ff);
-    padding:60px 20px;
-    text-align:center;
-    border-bottom-left-radius:50px;
-    border-bottom-right-radius:50px;
+/* Encabezado con efecto de bordes ondulados simulados */
+.hero {
+    background: linear-gradient(180deg, #b3e5fc, #e2f1f8);
+    padding: 80px 20px 60px 20px;
+    text-align: center;
+    position: relative;
 }
 
-.hero h1{
-    font-size:40px;
-    margin:0;
+.hero h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 52px;
+    color: #7c5295; /* Color lila/púrpura del título de la imagen */
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 0px rgba(255,255,255,0.5);
 }
 
-.container{
-    padding:20px;
-    max-width:1000px;
-    margin:auto;
+.hero p {
+    font-size: 18px;
+    color: #e57373; /* Color coral/naranja del botón e indicaciones */
+    font-weight: 700;
+    margin: 0;
 }
 
-.info{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-    justify-content:center;
-    margin-top:-40px;
+.container {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
 }
 
-.card-info{
-    background:white;
-    padding:15px 20px;
-    border-radius:20px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.08);
-    font-size:14px;
+/* Barra de datos de autoría */
+.info {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: -20px;
+    margin-bottom: 40px;
 }
 
-.grid{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap:20px;
-    margin-top:30px;
+.card-info {
+    background: #ffffff;
+    padding: 10px 18px;
+    border-radius: 50px; /* Completamente redondeado como píldora */
+    box-shadow: 0 8px 15px rgba(124, 82, 149, 0.08);
+    font-size: 14px;
+    font-weight: 700;
+    color: #6a5b6e;
+    border: 2px solid #fff;
 }
 
-.card{
-    background:white;
-    padding:20px;
-    border-radius:25px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-    transition:0.3s;
+/* Cuadrícula de tarjetas principales (Estilo papel/pergamino) */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
 }
 
-.card:hover{
-    transform:translateY(-8px);
+.card {
+    background: #fdfbf7; /* Blanco roto/crema como las hojitas de la foto */
+    padding: 30px 25px;
+    /* Bordes ligeramente asimétricos para dar efecto orgánico/papel hecho a mano */
+    border-radius: 20px 30px 25px 20px; 
+    box-shadow: 0 10px 20px rgba(124, 82, 149, 0.06);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(235, 230, 220, 0.7);
 }
 
-.image-box{
-    margin-top:30px;
-    border-radius:30px;
-    overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+.card:hover {
+    transform: translateY(-5px) rotate(1deg); /* Ligera rotación juguetona */
+    box-shadow: 0 15px 25px rgba(124, 82, 149, 0.1);
 }
 
-.image-box img{
-    width:100%;
+.card h3 {
+    font-family: 'Fredoka', sans-serif;
+    color: #e57373; /* Tonalidad coral */
+    margin-top: 0;
+    font-size: 22px;
 }
 
-.reflexion{
-    margin-top:30px;
-    padding:25px;
-    background:#f0f7ff;
-    border-left:6px solid #6bbcff;
-    border-radius:20px;
-}
-
-.teoria{
-    margin-top:30px;
-    background:white;
-    padding:25px;
-    border-radius:20px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.08);
-}
-
-.frases{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-top:20px;
-}
-
-.frase{
-    background:#fff;
-    padding:15px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.05);
-    font-size:14px;
-}
-
-.nav{
-    margin-top:40px;
-    display:flex;
-    justify-content:space-between;
-}
-
-.btn{
-    padding:12px 20px;
-    border-radius:20px;
-    background:#6bbcff;
-    color:white;
-    text-decoration:none;
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="hero">
-    <h1>Día 1</h1>
-    <p>Aprendizaje didáctico a través del arte</p>
-</div>
-
-<div class="container">
-
-<div class="info">
-    <div class="card-info">📆 09 de Abril</div>
-    <div class="card-info">📍 IETI Donald Rodrigo Tafur sede Francisco J. Ruiz</div>
-    <div class="card-info">👩‍🏫 Observación</div>
-    <div class="card-info">👤 Valentina Caldon López</div>
-</div>
-
-<div class="grid">
-
-<div class="card">
-    <h3>👀 Observación</h3>
-    <p>
-    La docente desarrolló una actividad enfocada en el aprendizaje mediante el arte y la exploración de figuras geométricas, donde los estudiantes organizaron figuras de diferentes tamaños y colores sobre cartulina.
-    </p>
-</div>
-
-<div class="card">
-    <h3>🎯 Actividad</h3>
-    <p>
-    La docente explicó las instrucciones con claridad, usó ejemplos visuales y acompañó constantemente a los estudiantes, promoviendo la creatividad y la organización del espacio.
-    </p>
-</div>
-
-<div class="card">
-    <h3>🤝 Interacción</h3>
-    <p>
-    Se evidenció trabajo colaborativo, diálogo entre estudiantes y un ambiente de confianza donde los niños compartieron materiales y expresaron satisfacción por sus creaciones.
-    </p>
-</div>
-
-</div>
-
-<div class="image-box">
-    <img src="dia1.jpg" alt="Actividad del día">
-</div>
-
-<div class="reflexion">
-    <h3>🌱 Reflexión pedagógica</h3>
-    <p>
-    La experiencia permitió comprender que la didáctica en educación inicial debe ser activa, creativa y significativa. El arte se consolida como herramienta clave para el desarrollo emocional, cognitivo y creativo de los estudiantes.
-    Además, se reconoce la importancia de generar ambientes seguros y afectivos que favorezcan la exploración y el aprendizaje autónomo.
-    </p>
-</div>
-
-<div class="teoria">
-    <h3>📚 Sustento teórico</h3>
-    <p>
-    Desde el enfoque constructivista, Jean Piaget plantea que el conocimiento se construye a partir de la interacción con el entorno. Asimismo, Lev Vygotsky resalta la importancia de la interacción social y el acompañamiento docente en el aprendizaje dentro de la zona de desarrollo próximo.
-    </p>
-</div>
-
-<div class="frases">
-    <div class="frase">💬 “El conocimiento se construye a través de la experiencia”</div>
-    <div class="frase">💬 “El aprendizaje inicia en lo social y luego se interioriza”</div>
-</div>
-
-<div class="nav">
-    <a href="index.html" class="btn">🏠 Inicio</a>
-    <a href="dia2.html" class="btn">➡ Día 2</a>
-</div>
-
-</div>
-
-</body>
-</html>
+/* Caja de imagen */
+.image-box {
+    margin: 40px 0;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(
