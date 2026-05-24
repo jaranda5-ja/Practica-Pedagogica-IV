@@ -2,218 +2,354 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Día 5</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
 <style>
+/* --- CONFIGURACIÓN DE BASE --- */
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(#f3f4f7, #e9ebf2);
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #eef2f7; /* Fondo exterior suave */
+  display: flex;
+  justify-content: center;
+  color: #2c3e50;
 }
 
-/* HEADER */
+/* Contenedor principal estilo Lienzo Vertical (Limpio y centrado) */
+.main-container {
+  width: 100%;
+  max-width: 800px;
+  background-color: #ffffff;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+  padding-bottom: 40px;
+}
+
+/* --- BARRA DE NAVEGACIÓN COMPACTA --- */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 15px 30px;
   background: #ffffff;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-bottom: 1px solid #f0f4f8;
 }
 
 .logo {
-  font-weight: bold;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
   font-size: 20px;
+  color: #1d3557;
 }
 
 .menu a {
-  margin: 0 10px;
+  margin-left: 15px;
   text-decoration: none;
-  color: #333;
-  padding: 8px 15px;
-  border-radius: 15px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.2s;
 }
 
 .menu a.activo {
-  background: #ffd54f;
+  background: #ffcc29;
+  color: #1d3557;
 }
 
-/* TITULO */
-.titulo {
-  text-align: center;
-  padding: 30px;
+/* --- SECCIÓN TITULO Y DATOS --- */
+.hero-section {
+  position: relative;
+  padding: 40px 40px 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.titulo h1 {
-  font-size: 60px;
+.titulo-grupo {
+  flex: 1;
+  min-width: 280px;
+}
+
+.titulo-grupo h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 56px;
+  color: #5d69f4; /* Azul/Morado vibrante */
   margin: 0;
-  background: linear-gradient(45deg,#7b61ff,#4facfe);
-  -webkit-background-clip: text;
-  color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.subtitulo {
-  background: #4facfe;
+/* Listón azul para el subtítulo */
+.subtitulo-cinta {
+  background: #1e90ff;
   color: white;
   display: inline-block;
-  padding: 10px 25px;
-  border-radius: 20px;
+  padding: 8px 20px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
   margin-top: 10px;
+  box-shadow: 0 4px 10px rgba(30, 144, 255, 0.3);
+  position: relative;
 }
 
-/* TARJETAS */
-.tarjetas {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
+/* Bloque rosa de Datos (Post-it flotante de la derecha) */
+.datos-flotantes {
+  background: #fbf0f3;
   padding: 20px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.03);
+  min-width: 220px;
+  border: 1px solid rgba(224, 176, 192, 0.3);
 }
 
-.tarjeta {
-  width: 280px;
-  padding: 20px;
-  border-radius: 20px;
-  color: #333;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.tarjeta:nth-child(1) { background: #fff3cd; }
-.tarjeta:nth-child(2) { background: #d4edda; }
-.tarjeta:nth-child(3) { background: #d1ecf1; }
-
-/* COLLAGE */
-.collage {
+.dato-item {
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: #4a5568;
   display: flex;
-  justify-content: center;
-  padding: 40px;
+  align-items: center;
+  gap: 8px;
 }
 
-.collage img {
-  width: 90%;
-  max-width: 900px;
-  border-radius: 25px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
-
-/* SECCIONES ABAJO */
-.info {
-  display: flex;
+/* --- TERCIA DE TARJETAS PASTEL --- */
+.tarjetas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  justify-content: center;
   padding: 30px;
-  flex-wrap: wrap;
 }
 
-.bloque {
-  width: 400px;
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.tarjeta-pastel {
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+  transition: transform 0.2s;
 }
 
-/* FRASES */
-.frases {
+.tarjeta-pastel:hover {
+  transform: translateY(-4px);
+}
+
+.tarjeta-pastel h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Colores pastel individuales y sus textos correspondientes */
+.tarjeta-pastel.actividad { background: #fff9e6; color: #b7791f; }
+.tarjeta-pastel.interaccion { background: #f0fdf4; color: #1c7d42; }
+.tarjeta-pastel.expresion { background: #f0f7ff; color: #1b6ca8; }
+
+.tarjeta-pastel p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* --- COLLAGE / SECCIÓN DE IMAGEN --- */
+.collage-container {
+  padding: 10px 30px;
   text-align: center;
+}
+
+.collage-container img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* --- SECCIONES TEÓRICAS Y REFLEXIÓN --- */
+.secciones-bajas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
   padding: 30px;
 }
 
-.frase {
-  display: inline-block;
-  margin: 10px;
+.bloque-conceptual {
+  padding: 25px;
+  border-radius: 16px;
+}
+
+.bloque-conceptual.reflexion { background: #f5f3ff; }
+.bloque-conceptual.teoria { background: #f0f7ff; }
+
+.bloque-conceptual h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.bloque-conceptual.reflexion h3 { color: #6b46c1; }
+.bloque-conceptual.teoria h3 { color: #2b6cb0; }
+
+.bloque-conceptual p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* --- CONTENEDOR DE FRASES DESTACADAS --- */
+.frases-destacadas {
+  margin: 10px 30px;
+  padding: 25px;
+  border: 2px dashed #fbcfe8;
+  background-color: #fffdfd;
+  border-radius: 16px;
+}
+
+.frases-titulo {
+  font-family: 'Fredoka', sans-serif;
+  text-align: center;
+  color: #ec4899;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.frases-flex {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.frase-capsula {
+  flex: 1;
+  min-width: 240px;
+  background: #ffffff;
   padding: 15px 20px;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  font-size: 13px;
+  color: #334155;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  border-left: 4px solid #fbcfe8;
 }
 
-/* BOTONES */
-.nav {
-  text-align: center;
-  padding: 30px;
+/* --- BOTONES DE NAVEGACIÓN --- */
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 30px;
 }
 
-.boton {
-  display: inline-block;
-  margin: 10px;
-  padding: 10px 20px;
-  border-radius: 20px;
-  background: #4facfe;
-  color: white;
+.btn-nav {
+  font-family: 'Fredoka', sans-serif;
   text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 25px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.btn-nav.secundario { background: #8b5cf6; color: white; }
+.btn-nav.principal { background: #ffcc29; color: #1d3557; }
+.btn-nav.azul { background: #3b82f6; color: white; }
+
+.btn-nav:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <div class="logo">📘 Diario de Campo</div>
-  <div class="menu">
-    <a href="#">Inicio</a>
-    <a href="#" class="activo">Días</a>
-    <a href="#">Reflexiones</a>
-    <a href="#">Galería</a>
-    <a href="#">Contacto</a>
-  </div>
-</div>
+<div class="main-container">
 
-<!-- TITULO -->
-<div class="titulo">
-  <h1>Día 5 💜</h1>
-  <div class="subtitulo">Reconocimiento de la familia y expresión oral</div>
-</div>
-
-<!-- TARJETAS -->
-<div class="tarjetas">
-  <div class="tarjeta">
-    <h3>📌 Actividad</h3>
-    <p>Se realizó una actividad donde los niños reconocieron su familia y compartieron experiencias.</p>
+  <div class="header">
+    <div class="logo">📝 Diario de Campo</div>
+    <div class="menu">
+      <a href="#">Inicio</a>
+      <a href="#" class="activo">Días</a>
+      <a href="#">Reflexiones</a>
+      <a href="#">Galería</a>
+      <a href="#">Contacto</a>
+    </div>
   </div>
 
-  <div class="tarjeta">
-    <h3>👥 Interacción</h3>
-    <p>Hubo participación activa, acompañamiento docente y comunicación constante.</p>
+  <div class="hero-section">
+    <div class="titulo-grupo">
+      <h1>Día 5 🤍</h1>
+      <div class="subtitulo-cinta">Reconocimiento de la familia y expresión oral</div>
+    </div>
+    
+    <div class="datos-flotantes">
+      <div class="dato-item">📅 27 de Mayo</div>
+      <div class="dato-item">📍 Sede Francisco J. Ruiz</div>
+      <div class="dato-item">👩‍🏫 Observación</div>
+      <div class="dato-item">👤 Valentina Caldon López</div>
+    </div>
   </div>
 
-  <div class="tarjeta">
-    <h3>🗣 Expresión oral</h3>
-    <p>Los estudiantes expresaron ideas, emociones y vivencias en un ambiente seguro.</p>
+  <div class="tarjetas-grid">
+    <div class="tarjeta-pastel actividad">
+      <h3>📋 Actividad</h3>
+      <p>La docente realizó una actividad sobre el reconocimiento de la familia y la expresión oral, donde los niños expusieron con carteleras quiénes conforman su familia.</p>
+    </div>
+
+    <div class="tarjeta-pastel interaccion">
+      <h3>👥 Interacción</h3>
+      <p>Durante la actividad hubo participación activa, escucha y acompañamiento de la docente para fortalecer la confianza y la comunicación de los estudiantes.</p>
+    </div>
+
+    <div class="tarjeta-pastel expresion">
+      <h3>💬 Expresión oral</h3>
+      <p>Los estudiantes lograron expresar sus ideas, vivencias y emociones, fortaleciendo su capacidad comunicativa en un ambiente seguro y participativo.</p>
+    </div>
   </div>
-</div>
 
-<!-- COLLAGE (TU IMAGEN) -->
-<div class="collage">
-  <img src="Dia-5.jpg" alt="Collage Día 5">
-</div>
-
-<!-- INFO -->
-<div class="info">
-  <div class="bloque">
-    <h3>🌱 Reflexión pedagógica</h3>
-    <p>Se fortaleció la identidad, la expresión oral y el vínculo con la familia.</p>
+  <div class="collage-container">
+    <img src="Dia-5.jpg" alt="Collage de fotos de la actividad familiar">
   </div>
 
-  <div class="bloque">
-    <h3>📘 Sustento teórico</h3>
-    <p>Vygotsky resalta la importancia de la interacción social en el aprendizaje significativo.</p>
+  <div class="secciones-bajas">
+    <div class="bloque-conceptual reflexion">
+      <h3>🌿 Reflexión pedagógica</h3>
+      <p>La experiencia permitió fortalecer la identidad, la expresión oral y el vínculo entre la escuela y la familia mediante aprendizajes significativos.</p>
+    </div>
+
+    <div class="bloque-conceptual teoria">
+      <h3>📘 Sustento teórico</h3>
+      <p>Según Lev Vygotsky, el aprendizaje se fortaleces a través de la interacción social. Asimismo, Jerome Bruner plantea que los niños aprenden mejor desde experiencias cercanas.</p>
+    </div>
   </div>
-</div>
 
-<!-- FRASES -->
-<div class="frases">
-  <div class="frase">💬 La familia es el primer espacio de aprendizaje.</div>
-  <div class="frase">💬 Aprender desde la experiencia fortalece la confianza.</div>
-</div>
+  <div class="frases-destacadas">
+    <p class="frases-titulo">Frases para recordar 💕</p>
+    <div class="frases-flex">
+      <div class="frase-capsula">“La familia es el primer espacio donde los niños construyen su identidad.”</div>
+      <div class="frase-capsula">“Aprender desde las experiencias fortalece la participación y la confianza infantil.”</div>
+    </div>
+  </div>
 
-<!-- NAV -->
-<div class="nav">
-  <a href="#" class="boton">⬅ Día 4</a>
-  <a href="#" class="boton">🏠 Inicio</a>
-  <a href="#" class="boton">Día 6 ➡</a>
+  <div class="footer-nav">
+    <a href="#" class="btn-nav absoluto secundario">← Día 4</a>
+    <a href="#" class="btn-nav principal">🏠 Inicio</a>
+  </div>
+
 </div>
 
 </body>
