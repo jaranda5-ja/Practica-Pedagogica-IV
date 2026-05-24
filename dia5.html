@@ -3,475 +3,271 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Día 5 - Super Bonito</title>
+<title>Diario de Campo - Día 5</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-/* --- CONFIGURACIÓN DE BASE Y FONDO MÁGICO --- */
+/* --- CONFIGURACIÓN GENERAL EN TODA LA PANTALLA (FULL WINDOW) --- */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Quicksand', sans-serif;
-  /* Degradado pastel suave */
-  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-  /* Patrón de puntos decorativos CSS */
-  background-image: radial-gradient(#e0e7ff 1px, transparent 1px);
-  background-size: 20px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  /* Fondo mágico degradado inmersivo inspirado en tu imagen */
+  background: linear-gradient(180deg, #eef2ff 0%, #fce7f3 40%, #fef08a 75%, #fbcfe8 100%);
+  background-attachment: fixed;
   color: #2c3e50;
-  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow-x: hidden;
 }
 
-/* --- DECORACIONES DE FONDO (NUBES CSS) --- */
-body::before, body::after {
-  content: '';
-  position: absolute;
-  background: white;
-  border-radius: 50px;
-  opacity: 0.6;
-  z-index: 0;
-  animation: flotarNube 15s infinite ease-in-out;
-}
-body::before {
-  width: 200px; height: 60px;
-  top: 10%; left: -50px;
-}
-body::after {
-  width: 150px; height: 50px;
-  bottom: 15%; right: -30px;
-  animation-delay: 5s;
-}
-
-@keyframes flotarNube {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(20px); }
-}
-
-/* --- CONTENEDOR PRINCIPAL EFECTO VIDRIO --- */
+/* El contenedor ahora ocupa el 100% del ancho para un efecto inmersivo total */
 .main-container {
-  width: 90%;
-  max-width: 800px;
-  background-color: rgba(255, 255, 255, 0.9); /* Ligeramente translúcido */
-  backdrop-filter: blur(5px); /* Desenfoque de fondo */
-  box-shadow: 0 15px 45px rgba(100, 100, 111, 0.1);
-  padding-bottom: 50px;
-  box-sizing: border-box;
-  border-radius: 30px; /* Bordes extra redondeados */
-  margin: 40px 0;
-  z-index: 10;
+  width: 100%;
+  max-width: 1200px; /* Se expande más en pantallas de PC */
+  padding: 40px 24px;
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  z-index: 10;
 }
 
-/* --- DECORACIONES INTERNAS INTERACTIVAS (CHISPAS) --- */
-.decoracion-chispa {
-  position: absolute;
-  width: 10px; height: 10px;
-  background: #ffcc29;
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: chispear 2s infinite;
+/* --- ELEMENTOS DECORATIVOS DE FONDO (CHISPAS Y ESTRELLAS) --- */
+.decoracion-entorno {
+  position: fixed;
+  font-size: 24px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+  animation: flotarSuave 4s infinite ease-in-out;
 }
-.chispa-1 { top: 20px; right: 40px; background: #5d69f4; animation-delay: 0.5s; }
-.chispa-2 { bottom: 60px; left: 30px; background: #8b5cf6; }
+.deco1 { top: 12%; left: 4%; animation-delay: 0s; }
+.deco2 { top: 25%; right: 5%; animation-delay: 1s; font-size: 32px; }
+.deco3 { bottom: 30%; left: 3%; animation-delay: 2s; }
+.deco4 { bottom: 15%; right: 4%; animation-delay: 1.5s; }
 
-@keyframes chispear {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.5); opacity: 0.2; }
+@keyframes flotarSuave {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
 }
 
-/* --- ESTRUCTURA HERO (TÍTULO + DATOS) --- */
+/* --- SECCIÓN HERO INMERSIVA --- */
 .hero-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
-  padding: 60px 40px 40px 40px;
+  gap: 40px;
+  padding: 40px 0;
   flex-wrap: wrap;
+}
+
+.titulo-grupo {
+  flex: 1;
+  min-width: 320px;
   position: relative;
 }
 
-/* Título con degradado y sombra suave */
-.titulo-grupo {
-  flex: 1;
-  min-width: 300px;
+/* Efecto de destellos al lado del título */
+.titulo-grupo::before {
+  content: '✨';
+  position: absolute;
+  top: -25px;
+  left: -10px;
+  font-size: 28px;
+  color: #ffcc29;
 }
 
 .titulo-grupo h1 {
   font-family: 'Fredoka', sans-serif;
-  font-size: 64px;
-  /* Degradado en el texto */
-  background: linear-gradient(45deg, #5d69f4, #8b5cf6);
-  -webkit-background-clip: text;
-  color: transparent;
+  font-size: 72px; /* Letras grandes y alegres */
   margin: 0;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+  background: linear-gradient(45deg, #4f46e5, #9333ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(2px 4px 0px rgba(255,255,255,0.8));
 }
 
 .subtitulo-cinta {
   background: #1e90ff;
   color: white;
   display: inline-block;
-  padding: 12px 24px;
+  padding: 14px 28px;
   font-family: 'Fredoka', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
-  border-radius: 10px;
+  border-radius: 14px;
   margin-top: 15px;
-  box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
-  position: relative;
-}
-/* Detalle de brillo en la cinta */
-.subtitulo-cinta::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, transparent, rgba(255,255,255,0.2), transparent);
-  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(30, 144, 255, 0.4);
 }
 
-/* Post-it rosa flotante decorado */
+/* Bloque de datos tipo Post-it curvilíneo */
 .datos-flotantes {
-  background: #fbf0f3;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(224, 176, 192, 0.3);
-  width: 280px;
-  border: 1px solid rgba(224, 176, 192, 0.4);
-  box-sizing: border-box;
-  position: relative;
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(244, 63, 94, 0.15);
+  width: 310px;
+  border: 2px solid #fecdd3;
+  transform: rotate(1deg);
   transition: transform 0.3s;
 }
-.datos-flotantes:hover { transform: translateY(-5px) rotate(1deg); }
+.datos-flotantes:hover {
+  transform: rotate(0deg) scale(1.03);
+}
 
 .dato-item {
-  font-size: 14px;
+  font-size: 15px;
   margin-bottom: 12px;
-  color: #4a5568;
+  color: #4f46e5;
+  font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 .dato-item:last-child { margin-bottom: 0; }
-.dato-item::before { content: '✨'; font-size: 12px; opacity: 0.6; }
 
-/* --- REJILLA DE TARJETAS PASTEL MEJORADA --- */
+/* --- REJILLA TRIPLE HORIZONTAL / ADAPTABLE --- */
 .tarjetas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  padding: 30px 40px;
+  margin-top: 20px;
 }
 
 .tarjeta-pastel {
-  padding: 35px 25px;
-  border-radius: 25px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.02);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  padding: 40px 30px;
+  border-radius: 28px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  border: 2px solid transparent;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .tarjeta-pastel:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
 }
 
 .tarjeta-pastel h3 {
   font-family: 'Fredoka', sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   margin-top: 0;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-/* Icono decorativo al final del título */
-.tarjeta-pastel h3::after {
-  content: '🌱'; font-size: 16px; opacity: 0.5; margin-left: auto;
+  margin-bottom: 16px;
 }
 
-.tarjeta-pastel.actividad { background: #fffdf2; color: #b7791f; border: 1px solid #ffecb3; }
-.tarjeta-pastel.interaccion { background: #f7fee7; color: #1c7d42; border: 1px solid #d9f99d; }
-.tarjeta-pastel.expresion { background: #f0f9ff; color: #1b6ca8; border: 1px solid #bae6fd; }
+/* Colores personalizados según la interfaz de tu imagen */
+.tarjeta-pastel.actividad { border-color: #fef08a; background: #fffbeb; color: #a16207; }
+.tarjeta-pastel.interaccion { border-color: #bbf7d0; background: #f0fdf4; color: #15803d; }
+.tarjeta-pastel.expresion { border-color: #bae6fd; background: #f0f9ff; color: #0369a1; }
 
 .tarjeta-pastel p {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
-  color: #4a5568;
+  color: #475569;
   margin: 0;
 }
 
-/* --- CONTENEDOR DE LA IMAGEN DECORADO --- */
+/* --- COLLAGE CENTRAL MULTI-IMAGEN --- */
 .collage-container {
-  padding: 40px;
-  text-align: center;
+  margin: 60px 0;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 30px;
+  border-radius: 40px;
+  border: 2px solid white;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.03);
   position: relative;
 }
-/* Adorno de esquina en la imagen */
-.collage-container::before {
-  content: '❤️'; position: absolute; top: 25px; left: 25px; font-size: 30px; opacity: 0.8; z-index: 15;
-  animation: latir 2s infinite;
-}
 
-@keyframes latir {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
+/* Marco simulado de fotos instantáneas */
 .collage-container img {
   width: 100%;
   max-width: 100%;
-  border-radius: 30px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.1);
   display: block;
-  border: 10px solid white; /* Marco blanco elegante */
+  border: 12px solid white;
 }
 
-/* --- SECCIONES TEÓRICAS MEJORADAS --- */
+/* --- SECCIONES CONCEPTUALES BAJAS --- */
 .secciones-bajas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 30px;
-  padding: 30px 40px;
 }
 
 .bloque-conceptual {
-  padding: 35px;
-  border-radius: 25px;
-  transition: all 0.3s;
+  padding: 40px 35px;
+  border-radius: 30px;
+  background: white;
+  border: 2px solid white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
 }
-.bloque-conceptual:hover { background-color: white; transform: scale(1.02); }
 
-.bloque-conceptual.reflexion { background: #faf5ff; border: 1px solid #e9d5ff; }
-.bloque-conceptual.teoria { background: #f0f9ff; border: 1px solid #bae6fd; }
+.bloque-conceptual.reflexion { background: #faf5ff; border-color: #f3e8ff; }
+.bloque-conceptual.teoria { background: #f0f9ff; border-color: #e0f2fe; }
 
 .bloque-conceptual h3 {
   font-family: 'Fredoka', sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   margin-top: 0;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
-
-.bloque-conceptual.reflexion h3 { color: #6b46c1; }
-.bloque-conceptual.teoria h3 { color: #2b6cb0; }
+.bloque-conceptual.reflexion h3 { color: #7c3aed; }
+.bloque-conceptual.teoria h3 { color: #0284c7; }
 
 .bloque-conceptual p {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
-  color: #4a5568;
+  color: #475569;
   margin: 0;
 }
 
-/* --- MUÑEQUITO CSS: OSITO TÍMIDO --- */
-.osito-decorativo {
-  position: absolute;
-  bottom: 20px;
-  right: 50px;
-  width: 60px; height: 50px;
-  background: #e9d5ff; /* Color lila pastel */
-  border-radius: 30px 30px 10px 10px;
-  z-index: 5;
-  box-shadow: 0 5px 15px rgba(107, 70, 193, 0.2);
-}
-.osito-decorativo::before, .osito-decorativo::after {
-  content: ''; position: absolute; background: #e9d5ff; border-radius: 50%;
-}
-/* Orejas */
-.osito-decorativo::before { width: 25px; height: 25px; top: -10px; left: -5px; }
-.osito-decorativo::after { width: 25px; height: 25px; top: -10px; right: -5px; }
-/* Ojos y Nariz */
-.osito-decorativo-cara {
-  position: absolute; top: 15px; left: 15px;
-  width: 30px; height: 10px; display: flex; justify-content: space-between;
-}
-.osito-decorativo-cara::before, .osito-decorativo-cara::after {
-  content: ''; width: 6px; height: 6px; background: #6b46c1; border-radius: 50%;
-}
-.osito-decorativo-nariz {
-  position: absolute; bottom: -15px; left: 11px;
-  width: 8px; height: 8px; background: #ec4899; border-radius: 50%;
-}
-
-/* --- MUÑEQUITO CSS: PAJARITO CANTANDO --- */
-.pajarito-decorativo {
-  position: absolute;
-  top: 60px;
-  left: 20px;
-  width: 40px; height: 30px;
-  background: #fff9e6; /* Amarillo pastel */
-  border-radius: 20px 20px 5px 20px;
-  z-index: 5;
-  transform: rotate(-10deg);
-  box-shadow: 0 4px 10px rgba(183, 121, 31, 0.2);
-}
-.pajarito-decorativo::before { /* Ojo */
-  content: ''; position: absolute; top: 8px; right: 10px; width: 5px; height: 5px; background: #b7791f; border-radius: 50%;
-}
-.pajarito-decorativo::after { /* Pico */
-  content: ''; position: absolute; top: 10px; right: -8px; border-left: 8px solid #b7791f; border-top: 4px solid transparent; border-bottom: 4px solid transparent;
-}
-.pajarito-ala { /* Ala */
-  position: absolute; bottom: 5px; left: 5px; width: 15px; height: 10px; background: white; border-radius: 10px; opacity: 0.7;
-}
-
-/* --- CONTENEDOR DE FRASES MEJORADO --- */
+/* --- FRASES DESTACADAS CON MUÑEQUITO INTEGRADO --- */
 .frases-destacadas {
-  margin: 30px 40px;
-  padding: 35px;
+  margin: 60px 0 40px 0;
+  padding: 40px;
   border: 3px dashed #fbcfe8;
-  background-color: #fffafb;
-  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 35px;
   position: relative;
-}
-/* Detalle de lazo decorativo */
-.frases-destacadas::before {
-  content: '🎀'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-size: 25px;
 }
 
 .frases-titulo {
   font-family: 'Fredoka', sans-serif;
   text-align: center;
-  color: #ec4899;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
+  color: #db2777;
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 35px;
 }
 
 .frases-flex {
   display: flex;
-  gap: 25px;
+  gap: 30px;
   flex-wrap: wrap;
 }
 
 .frase-capsula {
   flex: 1;
-  min-width: 260px;
+  min-width: 280px;
   background: #ffffff;
-  padding: 25px;
+  padding: 25px 30px;
   border-radius: 20px;
-  font-size: 14px;
+  font-size: 15px;
   color: #334155;
-  box-shadow: 0 5px 18px rgba(0,0,0,0.03);
-  border-left: 6px solid #fbcfe8;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+  border-left: 8px solid #fbcfe8;
+  font-style: italic;
   position: relative;
 }
-.frase-capsula::after { content: '"'; position: absolute; top: 10px; right: 10px; font-size: 30px; color: #fbcfe8; font-family: serif; opacity: 0.5; }
 
-/* --- BOTONES DE NAVEGACIÓN MEJORADOS --- */
-.footer-nav {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  padding: 40px 40px 10px 40px;
-}
-
-.btn-nav {
-  font-family: 'Fredoka', sans-serif;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 14px 40px;
-  border-radius: 50px; /* Completamente redondeados */
-  transition: all 0.3s;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  display: flex; align-items: center; gap: 8px;
-}
-
-.btn-nav.morado { background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; }
-.btn-nav.amarillo { background: linear-gradient(135deg, #ffcc29, #f59e0b); color: #1d2d50; }
-
-.btn-nav:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 9px 25px rgba(0,0,0,0.15);
-}
-
-</style>
-</head>
-
-<body>
-
-  <div class="main-container">
-
-    <div class="decoracion-chispa chispa-1"></div>
-    <div class="decoracion-chispa chispa-2"></div>
-
-    <div class="hero-section">
-      <div class="pajarito-decorativo"><div class="pajarito-ala"></div></div>
-      
-      <div class="titulo-grupo">
-        <h1>Día 5 🤍</h1>
-        <div class="subtitulo-cinta">Reconocimiento de la familia y expresión oral</div>
-      </div>
-      
-      <div class="datos-flotantes">
-        <div class="dato-item">📅 27 de Mayo</div>
-        <div class="dato-item">📍 Sede Francisco J. Ruiz</div>
-        <div class="dato-item">👩‍🏫 Observación</div>
-        <div class="dato-item">👤 Valentina Caldon López</div>
-      </div>
-    </div>
-
-    <div class="tarjetas-grid">
-      <div class="tarjeta-pastel actividad">
-        <h3>📋 Actividad</h3>
-        <p>La docente realizó una actividad sobre el reconocimiento de la familia y la expresión oral, donde los niños expusieron con carteleras quiénes conforman su familia.</p>
-      </div>
-
-      <div class="tarjeta-pastel interaccion">
-        <h3>👥 Interacción</h3>
-        <p>Durante la actividad hubo participación activa, escucha y acompañamiento de la docente para fortalecer la confianza y la comunicación de los estudiantes.</p>
-      </div>
-
-      <div class="tarjeta-pastel expresion">
-        <h3>💬 Expresión oral</h3>
-        <p>Los estudiantes lograron expresar sus ideas, vivencias y emociones, fortaleciendo su capacidad comunicativa en un ambiente seguro y participativo.</p>
-      </div>
-    </div>
-
-    <div class="collage-container">
-      <img src="Dia-5.jpg" alt="Collage de fotos de la actividad">
-    </div>
-
-    <div class="secciones-bajas">
-      <div class="bloque-conceptual reflexion">
-        <h3>🌿 Reflexión pedagógica</h3>
-        <p>La experiencia permitió fortalecer la identidad, la expresión oral y el vínculo entre la escuela y la familia mediante aprendizajes significativos.</p>
-      </div>
-
-      <div class="bloque-conceptual teoria">
-        <h3>📘 Sustento teórico</h3>
-        <p>Según Lev Vygotsky, el aprendizaje se fortalece a través de la interacción social. Asimismo, Jerome Bruner plantea que los niños aprenden mejor desde experiencias cercanas.</p>
-      </div>
-    </div>
-
-    <div class="frases-destacadas">
-      <div class="osito-decorativo">
-        <div class="osito-decorativo-cara"></div>
-        <div class="osito-decorativo-nariz"></div>
-      </div>
-      
-      <p class="frases-titulo">Frases para recordar 💕</p>
-      <div class="frases-flex">
-        <div class="frase-capsula">“La familia es el primer espacio donde los niños construyen su identidad.”</div>
-        <div class="frase-capsula">“Aprender desde las experiencias fortalece la participación y la confianza infantil.”</div>
-      </div>
-    </div>
-
-    <div class="footer-nav">
-      <a href="dia4.html" class="btn-nav morado">← Día 4</a>
-      <a href="index.html" class="btn-nav amarillo">🏠 Inicio</a>
-    </div>
-
-  </div>
-
-</body>
-</html>
+/* --- MUÑEQUITO CSS ADORABLE (EL NIÑO EXPLORADOR) --- */
+.munequito-explorador {
+  position: absolute;
+  bottom: -15px;
+  right
