@@ -15,178 +15,135 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Quicksand', sans-serif;
-  background-color: #eef2f7; /* Fondo exterior suave */
+  background-color: #f0f4f8; /* Fondo suave detrás de la página */
   display: flex;
   justify-content: center;
   color: #2c3e50;
 }
 
-/* Contenedor principal estilo Lienzo Vertical (Limpio y centrado) */
+/* El contenedor central que obliga a mantener la forma estética del diseño */
 .main-container {
   width: 100%;
   max-width: 800px;
   background-color: #ffffff;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-  padding-bottom: 40px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  padding-bottom: 50px;
+  box-sizing: border-box;
 }
 
-/* --- BARRA DE NAVEGACIÓN COMPACTA --- */
-.header {
+/* --- ESTRUCTURA HERO (TÍTULO IZQUIERDA + DATOS DERECHA) --- */
+.hero-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
-  background: #ffffff;
-  border-bottom: 1px solid #f0f4f8;
-}
-
-.logo {
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: #1d3557;
-}
-
-.menu a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #64748b;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: 20px;
-  transition: all 0.2s;
-}
-
-.menu a.activo {
-  background: #ffcc29;
-  color: #1d3557;
-}
-
-/* --- SECCIÓN TITULO Y DATOS --- */
-.hero-section {
-  position: relative;
-  padding: 40px 40px 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
+  padding: 50px 40px 30px 40px;
+  flex-wrap: wrap; /* Se adapta si la pantalla es muy chica */
 }
 
 .titulo-grupo {
   flex: 1;
-  min-width: 280px;
+  min-width: 300px;
 }
 
 .titulo-grupo h1 {
   font-family: 'Fredoka', sans-serif;
-  font-size: 56px;
-  color: #5d69f4; /* Azul/Morado vibrante */
+  font-size: 64px; /* Grande e imponente */
+  color: #5d69f4; 
   margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
-/* Listón azul para el subtítulo */
 .subtitulo-cinta {
   background: #1e90ff;
   color: white;
   display: inline-block;
-  padding: 8px 20px;
+  padding: 10px 22px;
   font-family: 'Fredoka', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  border-radius: 4px;
-  margin-top: 10px;
-  box-shadow: 0 4px 10px rgba(30, 144, 255, 0.3);
-  position: relative;
+  border-radius: 6px;
+  margin-top: 12px;
+  box-shadow: 0 4px 12px rgba(30, 144, 255, 0.25);
 }
 
-/* Bloque rosa de Datos (Post-it flotante de la derecha) */
+/* Post-it rosa flotante de datos */
 .datos-flotantes {
   background: #fbf0f3;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.03);
-  min-width: 220px;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(224, 176, 192, 0.2);
+  width: 260px;
   border: 1px solid rgba(224, 176, 192, 0.3);
+  box-sizing: border-box;
 }
 
 .dato-item {
-  font-size: 13px;
-  margin-bottom: 8px;
+  font-size: 14px;
+  margin-bottom: 10px;
   color: #4a5568;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
-/* --- TERCIA DE TARJETAS PASTEL --- */
+.dato-item:last-child {
+  margin-bottom: 0;
+}
+
+/* --- REJILLA DE 3 TARJETAS --- */
 .tarjetas-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 30px;
+  gap: 25px;
+  padding: 20px 40px;
 }
 
 .tarjeta-pastel {
-  padding: 25px 20px;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.02);
-  transition: transform 0.2s;
-}
-
-.tarjeta-pastel:hover {
-  transform: translateY(-4px);
+  padding: 30px 22px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.01);
 }
 
 .tarjeta-pastel h3 {
   font-family: 'Fredoka', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 0;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  margin-bottom: 14px;
 }
 
-/* Colores pastel individuales y sus textos correspondientes */
 .tarjeta-pastel.actividad { background: #fff9e6; color: #b7791f; }
 .tarjeta-pastel.interaccion { background: #f0fdf4; color: #1c7d42; }
 .tarjeta-pastel.expresion { background: #f0f7ff; color: #1b6ca8; }
 
 .tarjeta-pastel p {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.6;
   color: #4a5568;
   margin: 0;
 }
 
-/* --- COLLAGE / SECCIÓN DE IMAGEN --- */
+/* --- CONTENEDOR DE LA IMAGEN --- */
 .collage-container {
-  padding: 10px 30px;
+  padding: 30px 40px;
   text-align: center;
 }
 
 .collage-container img {
   width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  max-width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+  display: block;
 }
 
-/* --- SECCIONES TEÓRICAS Y REFLEXIÓN --- */
+/* --- SECCIONES TEÓRICAS --- */
 .secciones-bajas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  padding: 20px 40px;
 }
 
 .bloque-conceptual {
-  padding: 25px;
-  border-radius: 16px;
+  padding: 30px;
+  border-radius: 18px;
 }
 
 .bloque-conceptual.reflexion { background: #f5f3ff; }
@@ -194,83 +151,82 @@ body {
 
 .bloque-conceptual h3 {
   font-family: 'Fredoka', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 0;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .bloque-conceptual.reflexion h3 { color: #6b46c1; }
 .bloque-conceptual.teoria h3 { color: #2b6cb0; }
 
 .bloque-conceptual p {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.6;
   color: #4a5568;
   margin: 0;
 }
 
-/* --- CONTENEDOR DE FRASES DESTACADAS --- */
+/* --- CONTENEDOR DE FRASES --- */
 .frases-destacadas {
-  margin: 10px 30px;
-  padding: 25px;
+  margin: 30px 40px;
+  padding: 30px;
   border: 2px dashed #fbcfe8;
   background-color: #fffdfd;
-  border-radius: 16px;
+  border-radius: 18px;
 }
 
 .frases-titulo {
   font-family: 'Fredoka', sans-serif;
   text-align: center;
   color: #ec4899;
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .frases-flex {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .frase-capsula {
   flex: 1;
-  min-width: 240px;
+  min-width: 260px;
   background: #ffffff;
-  padding: 15px 20px;
-  border-radius: 12px;
-  font-size: 13px;
+  padding: 20px;
+  border-radius: 14px;
+  font-size: 14px;
   color: #334155;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-  border-left: 4px solid #fbcfe8;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  border-left: 5px solid #fbcfe8;
 }
 
 /* --- BOTONES DE NAVEGACIÓN --- */
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  padding: 20px 30px;
+  gap: 20px;
+  padding: 30px 40px 10px 40px;
 }
 
 .btn-nav {
   font-family: 'Fredoka', sans-serif;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  padding: 10px 22px;
-  border-radius: 25px;
+  padding: 12px 35px;
+  border-radius: 30px;
   transition: all 0.2s;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
-.btn-nav.secundario { background: #8b5cf6; color: white; }
-.btn-nav.principal { background: #ffcc29; color: #1d3557; }
-.btn-nav.azul { background: #3b82f6; color: white; }
+.btn-nav.morado { background: #8b5cf6; color: white; }
+.btn-nav.amarillo { background: #ffcc29; color: #1d2d50; }
 
 .btn-nav:hover {
   transform: translateY(-2px);
-  opacity: 0.9;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 </style>
 </head>
@@ -278,17 +234,6 @@ body {
 <body>
 
 <div class="main-container">
-
-  <div class="header">
-    <div class="logo">📝 Diario de Campo</div>
-    <div class="menu">
-      <a href="#">Inicio</a>
-      <a href="#" class="activo">Días</a>
-      <a href="#">Reflexiones</a>
-      <a href="#">Galería</a>
-      <a href="#">Contacto</a>
-    </div>
-  </div>
 
   <div class="hero-section">
     <div class="titulo-grupo">
@@ -322,7 +267,7 @@ body {
   </div>
 
   <div class="collage-container">
-    <img src="Dia-5.jpg" alt="Collage de fotos de la actividad familiar">
+    <img src="Dia-5.jpg" alt="Collage de fotos de la actividad">
   </div>
 
   <div class="secciones-bajas">
@@ -333,7 +278,7 @@ body {
 
     <div class="bloque-conceptual teoria">
       <h3>📘 Sustento teórico</h3>
-      <p>Según Lev Vygotsky, el aprendizaje se fortaleces a través de la interacción social. Asimismo, Jerome Bruner plantea que los niños aprenden mejor desde experiencias cercanas.</p>
+      <p>Según Lev Vygotsky, el aprendizaje se fortalece a través de la interacción social. Asimismo, Jerome Bruner plantea que los niños aprenden mejor desde experiencias cercanas.</p>
     </div>
   </div>
 
@@ -345,11 +290,10 @@ body {
     </div>
   </div>
 
- <div class="nav">
-    <a href="dia4.html" class="btn">⬅ Día 4</a>
-    <a href="index.html" class="btn">🏠 Inicio</a>
-    <a href="dia6.html" class="btn">➡ Día 6</a>
-</div>
+  <div class="footer-nav">
+    <a href="#" class="btn-nav morado">← Día 4</a>
+    <a href="#" class="btn-nav amarillo">🏠 Inicio</a>
+  </div>
 
 </div>
 
