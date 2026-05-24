@@ -1,81 +1,217 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Día 4 - Collage</title>
+<meta charset="UTF-8">
+<title>Día 5</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f6f7fb;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6fb;
+}
 
-    .seccion-collage {
-      padding: 60px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 30px 20px 10px;
+}
 
-    /* CONTENEDOR */
-    .contenedor-collage {
-      max-width: 900px;
-      width: 100%;
-      background: white;
-      padding: 20px;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-      position: relative;
-      transition: transform 0.3s ease;
-    }
+.header h1 {
+  font-size: 50px;
+  color: #4a6cf7;
+  margin: 0;
+}
 
-    .contenedor-collage:hover {
-      transform: scale(1.02);
-    }
+.subtitulo {
+  background: #4a6cf7;
+  color: white;
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 20px;
+  margin-top: 10px;
+  font-size: 18px;
+}
 
-    /* IMAGEN */
-    .contenedor-collage img {
-      width: 100%;
-      border-radius: 20px;
-      display: block;
-    }
+/* TARJETAS */
+.tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 30px;
+}
 
-    /* DECORACIÓN */
-    .contenedor-collage::before {
-      content: "⭐";
-      position: absolute;
-      top: -15px;
-      left: -15px;
-      font-size: 30px;
-    }
+.tarjeta {
+  width: 280px;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
 
-    .contenedor-collage::after {
-      content: "✨";
-      position: absolute;
-      bottom: -15px;
-      right: -15px;
-      font-size: 30px;
-    }
+.tarjeta h3 {
+  margin-top: 0;
+  color: #4a6cf7;
+}
 
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-      .contenedor-collage {
-        padding: 15px;
-      }
-    }
+/* COLLAGE */
+.seccion-collage {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
 
-  </style>
+.contenedor-collage {
+  max-width: 900px;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  position: relative;
+  transition: 0.3s;
+}
+
+.contenedor-collage:hover {
+  transform: scale(1.02);
+}
+
+.contenedor-collage img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* DECORACIÓN */
+.contenedor-collage::before {
+  content: "⭐";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  font-size: 30px;
+}
+
+.contenedor-collage::after {
+  content: "✨";
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  font-size: 30px;
+}
+
+/* REFLEXIÓN */
+.seccion-texto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px;
+  justify-content: center;
+}
+
+.bloque {
+  width: 400px;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* FRASES */
+.frases {
+  text-align: center;
+  padding: 30px;
+}
+
+.frase {
+  display: inline-block;
+  background: white;
+  margin: 10px;
+  padding: 15px 20px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* BOTONES */
+.nav {
+  text-align: center;
+  padding: 30px;
+}
+
+.boton {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: #4a6cf7;
+  color: white;
+  text-decoration: none;
+}
+</style>
+
 </head>
 
 <body>
 
-  <section class="seccion-collage">
-    <div class="contenedor-collage">
-      <!-- CAMBIA SOLO ESTA RUTA -->
-      <img src="Dia-5.jpg">
-    </div>
-  </section>
+<!-- HEADER -->
+<div class="header">
+  <h1>Día 5 💙</h1>
+  <div class="subtitulo">Reconocimiento de la familia y expresión oral</div>
+</div>
+
+<!-- TARJETAS -->
+<div class="tarjetas">
+
+  <div class="tarjeta">
+    <h3>📌 Actividad</h3>
+    <p>Se realizó una actividad sobre el reconocimiento de la familia donde los niños compartieron experiencias y elaboraron carteleras.</p>
+  </div>
+
+  <div class="tarjeta">
+    <h3>👥 Interacción</h3>
+    <p>Hubo participación activa, acompañamiento docente y fortalecimiento de la confianza en la comunicación.</p>
+  </div>
+
+  <div class="tarjeta">
+    <h3>🗣 Expresión oral</h3>
+    <p>Los estudiantes lograron expresar ideas, emociones y vivencias en un ambiente participativo.</p>
+  </div>
+
+</div>
+
+<!-- COLLAGE -->
+<section class="seccion-collage">
+  <div class="contenedor-collage">
+    <img src="img/dia4/Dia-5.jpg" alt="Collage Día 5">
+  </div>
+</section>
+
+<!-- REFLEXIÓN -->
+<div class="seccion-texto">
+
+  <div class="bloque">
+    <h3>🌱 Reflexión pedagógica</h3>
+    <p>La experiencia permitió fortalecer la identidad, la expresión oral y el vínculo entre la escuela y la familia.</p>
+  </div>
+
+  <div class="bloque">
+    <h3>📘 Sustento teórico</h3>
+    <p>Según Vygotsky, el aprendizaje se fortalece mediante la interacción social y experiencias significativas.</p>
+  </div>
+
+</div>
+
+<!-- FRASES -->
+<div class="frases">
+  <div class="frase">💬 La familia es el primer espacio de aprendizaje.</div>
+  <div class="frase">💬 Aprender desde la experiencia fortalece la confianza.</div>
+</div>
+
+<!-- NAVEGACIÓN -->
+<div class="nav">
+  <a href="#" class="boton">⬅ Día 4</a>
+  <a href="#" class="boton">🏠 Inicio</a>
+  <a href="#" class="boton">Día 6 ➡</a>
+</div>
 
 </body>
 </html>
