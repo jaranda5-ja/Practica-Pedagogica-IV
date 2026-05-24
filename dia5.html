@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-/* --- CONFIGURACIÓN GENERAL EN TODA LA PANTALLA (FULL WINDOW) --- */
+/* --- CONFIGURACIÓN DE PANTALLA COMPLETA --- */
 * {
   box-sizing: border-box;
 }
@@ -19,8 +19,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Quicksand', sans-serif;
-  /* Fondo mágico degradado inmersivo inspirado en tu imagen */
-  background: linear-gradient(180deg, #eef2ff 0%, #fce7f3 40%, #fef08a 75%, #fbcfe8 100%);
+  /* Fondo degradado colorido y suave idéntico a tu referencia */
+  background: linear-gradient(180deg, #ffedf2 0%, #eef2ff 35%, #e0f2fe 70%, #fef08a 100%);
   background-attachment: fixed;
   color: #2c3e50;
   min-height: 100vh;
@@ -30,225 +30,244 @@ body {
   overflow-x: hidden;
 }
 
-/* El contenedor ahora ocupa el 100% del ancho para un efecto inmersivo total */
+/* --- BARRA DE NAVEGACIÓN SUPERIOR BLANCA --- */
+.navbar {
+  width: 100%;
+  background: #ffffff;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #2e3a8c;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #64748b;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 20px;
+  transition: all 0.2s;
+}
+
+.nav-menu a.activo {
+  background: #ffcc29;
+  color: #1d2d50;
+}
+
+/* --- CONTENEDOR FLUIDO QUE OCUPA TODA LA PANTALLA --- */
 .main-container {
   width: 100%;
-  max-width: 1200px; /* Se expande más en pantallas de PC */
+  max-width: 1200px;
   padding: 40px 24px;
   position: relative;
   z-index: 10;
 }
 
-/* --- ELEMENTOS DECORATIVOS DE FONDO (CHISPAS Y ESTRELLAS) --- */
-.decoracion-entorno {
+/* --- DETALLES DE ESTRELLITAS DE FONDO --- */
+.estrella-flotante {
   position: fixed;
-  font-size: 24px;
+  font-size: 20px;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.6;
-  animation: flotarSuave 4s infinite ease-in-out;
+  opacity: 0.5;
+  animation: brillar 3s infinite ease-in-out;
 }
-.deco1 { top: 12%; left: 4%; animation-delay: 0s; }
-.deco2 { top: 25%; right: 5%; animation-delay: 1s; font-size: 32px; }
-.deco3 { bottom: 30%; left: 3%; animation-delay: 2s; }
-.deco4 { bottom: 15%; right: 4%; animation-delay: 1.5s; }
+.est1 { top: 20%; left: 3%; animation-delay: 0s; }
+.est2 { top: 40%; right: 4%; animation-delay: 1s; }
+.est3 { bottom: 25%; left: 2%; animation-delay: 1.5s; }
+.est4 { bottom: 15%; right: 3%; animation-delay: 0.5s; }
 
-@keyframes flotarSuave {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(5deg); }
+@keyframes brillar {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.3); opacity: 0.8; }
 }
 
-/* --- SECCIÓN HERO INMERSIVA --- */
+/* --- ESTRUCTURA HERO (TÍTULO + TARJETA ROSA) --- */
 .hero-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 40px;
-  padding: 40px 0;
+  padding: 20px 0 40px 0;
   flex-wrap: wrap;
 }
 
 .titulo-grupo {
   flex: 1;
   min-width: 320px;
-  position: relative;
-}
-
-/* Efecto de destellos al lado del título */
-.titulo-grupo::before {
-  content: '✨';
-  position: absolute;
-  top: -25px;
-  left: -10px;
-  font-size: 28px;
-  color: #ffcc29;
 }
 
 .titulo-grupo h1 {
   font-family: 'Fredoka', sans-serif;
-  font-size: 72px; /* Letras grandes y alegres */
+  font-size: 70px;
   margin: 0;
-  background: linear-gradient(45deg, #4f46e5, #9333ea);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(2px 4px 0px rgba(255,255,255,0.8));
+  color: #4f46e5;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .subtitulo-cinta {
   background: #1e90ff;
   color: white;
   display: inline-block;
-  padding: 14px 28px;
+  padding: 12px 26px;
   font-family: 'Fredoka', sans-serif;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
-  border-radius: 14px;
+  border-radius: 12px;
   margin-top: 15px;
-  box-shadow: 0 8px 20px rgba(30, 144, 255, 0.4);
+  box-shadow: 0 6px 18px rgba(30, 144, 255, 0.35);
 }
 
-/* Bloque de datos tipo Post-it curvilíneo */
+/* Tarjeta rosa de datos */
 .datos-flotantes {
   background: #ffffff;
-  padding: 28px;
+  padding: 25px;
   border-radius: 24px;
-  box-shadow: 0 12px 35px rgba(244, 63, 94, 0.15);
+  box-shadow: 0 12px 30px rgba(244, 63, 94, 0.1);
   width: 310px;
-  border: 2px solid #fecdd3;
-  transform: rotate(1deg);
-  transition: transform 0.3s;
-}
-.datos-flotantes:hover {
-  transform: rotate(0deg) scale(1.03);
+  border: 2px solid #ffe4e6;
 }
 
 .dato-item {
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 12px;
-  color: #4f46e5;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  color: #475569;
+  font-weight: 600;
 }
 .dato-item:last-child { margin-bottom: 0; }
 
-/* --- REJILLA TRIPLE HORIZONTAL / ADAPTABLE --- */
+/* --- REJILLA TRIPLE TOTALMENTE RESPONSIVE --- */
 .tarjetas-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .tarjeta-pastel {
-  padding: 40px 30px;
-  border-radius: 28px;
+  padding: 35px 25px;
+  border-radius: 24px;
   background: white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.02);
   border: 2px solid transparent;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.2s;
 }
 .tarjeta-pastel:hover {
-  transform: translateY(-8px);
+  transform: translateY(-5px);
 }
 
 .tarjeta-pastel h3 {
   font-family: 'Fredoka', sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
-/* Colores personalizados según la interfaz de tu imagen */
 .tarjeta-pastel.actividad { border-color: #fef08a; background: #fffbeb; color: #a16207; }
 .tarjeta-pastel.interaccion { border-color: #bbf7d0; background: #f0fdf4; color: #15803d; }
 .tarjeta-pastel.expresion { border-color: #bae6fd; background: #f0f9ff; color: #0369a1; }
 
 .tarjeta-pastel p {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.7;
   color: #475569;
   margin: 0;
 }
 
-/* --- COLLAGE CENTRAL MULTI-IMAGEN --- */
+/* --- CONTENEDOR DE LA IMAGEN CENTRAL --- */
 .collage-container {
-  margin: 60px 0;
-  background: rgba(255, 255, 255, 0.6);
-  padding: 30px;
-  border-radius: 40px;
-  border: 2px solid white;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-  position: relative;
+  margin: 40px 0;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 32px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.04);
 }
 
-/* Marco simulado de fotos instantáneas */
 .collage-container img {
   width: 100%;
   max-width: 100%;
-  border-radius: 24px;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+  border-radius: 20px;
   display: block;
-  border: 12px solid white;
 }
 
-/* --- SECCIONES CONCEPTUALES BAJAS --- */
+/* --- SECCIONES INFERIORES DE TEXTO --- */
 .secciones-bajas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 30px;
+  margin-bottom: 40px;
 }
 
 .bloque-conceptual {
-  padding: 40px 35px;
-  border-radius: 30px;
+  padding: 35px;
+  border-radius: 28px;
   background: white;
-  border: 2px solid white;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.02);
 }
 
-.bloque-conceptual.reflexion { background: #faf5ff; border-color: #f3e8ff; }
-.bloque-conceptual.teoria { background: #f0f9ff; border-color: #e0f2fe; }
+.bloque-conceptual.reflexion { border-left: 6px solid #a78bfa; background: #faf5ff; }
+.bloque-conceptual.teoria { border-left: 6px solid #38bdf8; background: #f0f9ff; }
 
 .bloque-conceptual h3 {
   font-family: 'Fredoka', sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
-.bloque-conceptual.reflexion h3 { color: #7c3aed; }
-.bloque-conceptual.teoria h3 { color: #0284c7; }
+.bloque-conceptual.reflexion h3 { color: #6d28d9; }
+.bloque-conceptual.teoria h3 { color: #0369a1; }
 
 .bloque-conceptual p {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.7;
   color: #475569;
   margin: 0;
 }
 
-/* --- FRASES DESTACADAS CON MUÑEQUITO INTEGRADO --- */
+/* --- CONTENEDOR DE FRASES --- */
 .frases-destacadas {
-  margin: 60px 0 40px 0;
-  padding: 40px;
+  padding: 35px;
   border: 3px dashed #fbcfe8;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 35px;
-  position: relative;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 28px;
+  margin-bottom: 40px;
 }
 
 .frases-titulo {
   font-family: 'Fredoka', sans-serif;
   text-align: center;
   color: #db2777;
-  font-size: 24px;
+  font-size: 22px;
   margin-top: 0;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }
 
 .frases-flex {
   display: flex;
-  gap: 30px;
+  gap: 25px;
   flex-wrap: wrap;
 }
 
@@ -256,18 +275,131 @@ body {
   flex: 1;
   min-width: 280px;
   background: #ffffff;
-  padding: 25px 30px;
-  border-radius: 20px;
-  font-size: 15px;
+  padding: 20px 25px;
+  border-radius: 18px;
+  font-size: 14px;
   color: #334155;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.02);
-  border-left: 8px solid #fbcfe8;
-  font-style: italic;
-  position: relative;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+  border-left: 6px solid #fbcfe8;
 }
 
-/* --- MUÑEQUITO CSS ADORABLE (EL NIÑO EXPLORADOR) --- */
-.munequito-explorador {
-  position: absolute;
-  bottom: -15px;
-  right
+/* --- BOTONES DE MENÚ INFERIOR --- */
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-nav {
+  font-family: 'Fredoka', sans-serif;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 35px;
+  border-radius: 30px;
+  transition: all 0.2s;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+}
+
+.btn-nav.morado { background: #8b5cf6; color: white; }
+.btn-nav.amarillo { background: #ffcc29; color: #1d2d50; }
+.btn-nav.azul { background: #3b82f6; color: white; }
+
+.btn-nav:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* AJUSTES CELULAR */
+@media (max-width: 768px) {
+  .navbar { padding: 15px 20px; }
+  .hero-section { flex-direction: column; text-align: center; }
+  .titulo-grupo h1 { font-size: 48px; justify-content: center; }
+  .datos-flotantes { width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <div class="nav-logo">📝 Diario de Campo</div>
+    <div class="nav-menu">
+      <a href="index.html">Inicio</a>
+      <a href="#" class="activo">Días</a>
+      <a href="#">Reflexiones</a>
+    </div>
+  </div>
+
+  <div class="estrella-flotante est1">⭐</div>
+  <div class="estrella-flotante est2">✨</div>
+  <div class="estrella-flotante est3">🎨</div>
+  <div class="estrella-flotante est4">🌸</div>
+
+  <div class="main-container">
+
+    <div class="hero-section">
+      <div class="titulo-grupo">
+        <h1>Día 5 💜</h1>
+        <div class="subtitulo-cinta">Reconocimiento de la familia y expresión oral</div>
+      </div>
+      
+      <div class="datos-flotantes">
+        <div class="dato-item">📅 &nbsp; 27 de Mayo</div>
+        <div class="dato-item">📍 &nbsp; Sede Francisco J. Ruiz</div>
+        <div class="dato-item">👩‍🏫 &nbsp; Observación</div>
+        <div class="dato-item">👤 &nbsp; Valentina Caldon López</div>
+      </div>
+    </div>
+
+    <div class="tarjetas-grid">
+      <div class="tarjeta-pastel actividad">
+        <h3>📋 Actividad</h3>
+        <p>La docente realizó una actividad sobre el reconocimiento de la familia y la expresión oral, donde los niños expusieron con carteleras quiénes conforman su familia y compartieron experiencias de su entorno cercano.</p>
+      </div>
+
+      <div class="tarjeta-pastel interaccion">
+        <h3>👥 Interacción</h3>
+        <p>Durante la actividad hubo participación activa, escucha y acompañamiento de la docente para fortalecer la confianza y la comunicación de los estudiantes.</p>
+      </div>
+
+      <div class="tarjeta-pastel expresion">
+        <h3>💬 Expresión oral</h3>
+        <p>Los estudiantes lograron expresar sus ideas, vivencias y emociones, fortaleciendo su capacidad comunicativa en un ambiente seguro y participativo.</p>
+      </div>
+    </div>
+
+    <div class="collage-container">
+      <img src="Dia-5.jpg" alt="Fotos de la actividad con los niños">
+    </div>
+
+    <div class="secciones-bajas">
+      <div class="bloque-conceptual reflexion">
+        <h3>🌿 Reflexión pedagógica</h3>
+        <p>La experiencia permitió fortalecer la identidad, la expresión oral y el vínculo entre la escuela y la familia mediante aprendizajes significativos.</p>
+      </div>
+
+      <div class="bloque-conceptual teoria">
+        <h3>📘 Sustento teórico</h3>
+        <p>Según Lev Vygotsky, el aprendizaje se fortalece a través de la interacción social. Asimismo, Jerome Bruner plantea que los niños aprenden mejor desde experiencias cercanas y significativas.</p>
+      </div>
+    </div>
+
+    <div class="frases-destacadas">
+      <p class="frases-titulo">Frases para recordar 💕</p>
+      <div class="frases-flex">
+        <div class="frase-capsula">“La familia es el primer espacio donde los niños construyen su identidad.”</div>
+        <div class="frase-capsula">“Aprender desde las experiencias fortalece la participación y la confianza infantil.”</div>
+      </div>
+    </div>
+
+    <div class="footer-nav">
+      <a href="dia4.html" class="btn-nav morado">← Día 4</a>
+      <a href="index.html" class="btn-nav amarillo">🏠 Inicio</a>
+      <a href="dia6.html" class="btn-nav azul">Día 6 →</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
