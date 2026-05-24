@@ -8,104 +8,101 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #f4f6fb;
+  background: linear-gradient(#f3f4f7, #e9ebf2);
 }
 
 /* HEADER */
 .header {
-  text-align: center;
-  padding: 30px 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #ffffff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.header h1 {
-  font-size: 50px;
-  color: #4a6cf7;
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.menu a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  padding: 8px 15px;
+  border-radius: 15px;
+}
+
+.menu a.activo {
+  background: #ffd54f;
+}
+
+/* TITULO */
+.titulo {
+  text-align: center;
+  padding: 30px;
+}
+
+.titulo h1 {
+  font-size: 60px;
   margin: 0;
+  background: linear-gradient(45deg,#7b61ff,#4facfe);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .subtitulo {
-  background: #4a6cf7;
+  background: #4facfe;
   color: white;
   display: inline-block;
   padding: 10px 25px;
   border-radius: 20px;
   margin-top: 10px;
-  font-size: 18px;
 }
 
 /* TARJETAS */
 .tarjetas {
   display: flex;
-  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  padding: 30px;
+  flex-wrap: wrap;
+  padding: 20px;
 }
 
 .tarjeta {
   width: 280px;
-  background: white;
   padding: 20px;
   border-radius: 20px;
+  color: #333;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-.tarjeta h3 {
-  margin-top: 0;
-  color: #4a6cf7;
-}
+.tarjeta:nth-child(1) { background: #fff3cd; }
+.tarjeta:nth-child(2) { background: #d4edda; }
+.tarjeta:nth-child(3) { background: #d1ecf1; }
 
 /* COLLAGE */
-.seccion-collage {
+.collage {
   display: flex;
   justify-content: center;
-  padding: 40px 20px;
+  padding: 40px;
 }
 
-.contenedor-collage {
+.collage img {
+  width: 90%;
   max-width: 900px;
-  width: 100%;
-  background: white;
-  padding: 20px;
   border-radius: 25px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-  position: relative;
-  transition: 0.3s;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
-.contenedor-collage:hover {
-  transform: scale(1.02);
-}
-
-.contenedor-collage img {
-  width: 100%;
-  border-radius: 20px;
-}
-
-/* DECORACIÓN */
-.contenedor-collage::before {
-  content: "⭐";
-  position: absolute;
-  top: -15px;
-  left: -15px;
-  font-size: 30px;
-}
-
-.contenedor-collage::after {
-  content: "✨";
-  position: absolute;
-  bottom: -15px;
-  right: -15px;
-  font-size: 30px;
-}
-
-/* REFLEXIÓN */
-.seccion-texto {
+/* SECCIONES ABAJO */
+.info {
   display: flex;
-  flex-wrap: wrap;
   gap: 20px;
-  padding: 30px;
   justify-content: center;
+  padding: 30px;
+  flex-wrap: wrap;
 }
 
 .bloque {
@@ -124,9 +121,9 @@ body {
 
 .frase {
   display: inline-block;
-  background: white;
   margin: 10px;
   padding: 15px 20px;
+  background: #fff;
   border-radius: 20px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
@@ -142,7 +139,7 @@ body {
   margin: 10px;
   padding: 10px 20px;
   border-radius: 20px;
-  background: #4a6cf7;
+  background: #4facfe;
   color: white;
   text-decoration: none;
 }
@@ -154,50 +151,56 @@ body {
 
 <!-- HEADER -->
 <div class="header">
-  <h1>Día 5 💙</h1>
+  <div class="logo">📘 Diario de Campo</div>
+  <div class="menu">
+    <a href="#">Inicio</a>
+    <a href="#" class="activo">Días</a>
+    <a href="#">Reflexiones</a>
+    <a href="#">Galería</a>
+    <a href="#">Contacto</a>
+  </div>
+</div>
+
+<!-- TITULO -->
+<div class="titulo">
+  <h1>Día 5 💜</h1>
   <div class="subtitulo">Reconocimiento de la familia y expresión oral</div>
 </div>
 
 <!-- TARJETAS -->
 <div class="tarjetas">
-
   <div class="tarjeta">
     <h3>📌 Actividad</h3>
-    <p>Se realizó una actividad sobre el reconocimiento de la familia donde los niños compartieron experiencias y elaboraron carteleras.</p>
+    <p>Se realizó una actividad donde los niños reconocieron su familia y compartieron experiencias.</p>
   </div>
 
   <div class="tarjeta">
     <h3>👥 Interacción</h3>
-    <p>Hubo participación activa, acompañamiento docente y fortalecimiento de la confianza en la comunicación.</p>
+    <p>Hubo participación activa, acompañamiento docente y comunicación constante.</p>
   </div>
 
   <div class="tarjeta">
     <h3>🗣 Expresión oral</h3>
-    <p>Los estudiantes lograron expresar ideas, emociones y vivencias en un ambiente participativo.</p>
+    <p>Los estudiantes expresaron ideas, emociones y vivencias en un ambiente seguro.</p>
   </div>
-
 </div>
 
-<!-- COLLAGE -->
-<section class="seccion-collage">
-  <div class="contenedor-collage">
-    <img src="img/dia4/Dia-5.jpg" alt="Collage Día 5">
-  </div>
-</section>
+<!-- COLLAGE (TU IMAGEN) -->
+<div class="collage">
+  <img src="Dia-5.jpg" alt="Collage Día 5">
+</div>
 
-<!-- REFLEXIÓN -->
-<div class="seccion-texto">
-
+<!-- INFO -->
+<div class="info">
   <div class="bloque">
     <h3>🌱 Reflexión pedagógica</h3>
-    <p>La experiencia permitió fortalecer la identidad, la expresión oral y el vínculo entre la escuela y la familia.</p>
+    <p>Se fortaleció la identidad, la expresión oral y el vínculo con la familia.</p>
   </div>
 
   <div class="bloque">
     <h3>📘 Sustento teórico</h3>
-    <p>Según Vygotsky, el aprendizaje se fortalece mediante la interacción social y experiencias significativas.</p>
+    <p>Vygotsky resalta la importancia de la interacción social en el aprendizaje significativo.</p>
   </div>
-
 </div>
 
 <!-- FRASES -->
@@ -206,7 +209,7 @@ body {
   <div class="frase">💬 Aprender desde la experiencia fortalece la confianza.</div>
 </div>
 
-<!-- NAVEGACIÓN -->
+<!-- NAV -->
 <div class="nav">
   <a href="#" class="boton">⬅ Día 4</a>
   <a href="#" class="boton">🏠 Inicio</a>
