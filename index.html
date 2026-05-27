@@ -19,21 +19,63 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #d8f3e2; /* Verde suave del fondo inferior */
+            background-color: #F0E8DB; 
             color: #333;
             overflow-x: hidden;
         }
 
         /* ========================================= */
-        /* SECCIÓN SUPERIOR (Fondo Crema)            */
+        /* ANIMACIONES MÁGICAS                       */
         /* ========================================= */
-        .top-section {
-            background-color: #fdfaf0;
-            position: relative;
-            padding-bottom: 50px;
+        @keyframes flotar {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
 
-        /* NAVEGACIÓN */
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-4deg) scale(1.05); }
+            50% { transform: rotate(4deg) scale(1.05); }
+            75% { transform: rotate(-4deg) scale(1.05); }
+        }
+
+        /* ========================================= */
+        /* SECCIÓN SUPERIOR (Fondo Lápiz Pastel)     */
+        /* ========================================= */
+        .top-section {
+            background-color: #F0E8DB; 
+            position: relative;
+            padding-bottom: 70px;
+            z-index: 2; 
+        }
+
+        .top-section::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('ChatGPT Image 26 may 2026, 03_23_39 a.m..png');
+            background-repeat: repeat;
+            background-size: 1180px; 
+            opacity: 0.30; 
+            z-index: -1; 
+            pointer-events: none;
+        }
+
+        /* CAPA DE SOMBRA (Viñeta superior 3D - LA ÚNICA QUE QUEDA) */
+        .top-section::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            box-shadow: 
+                inset 40px 0px 60px rgba(0,0,0,0.15),   
+                inset -40px 0px 60px rgba(0,0,0,0.15),  
+                inset 0px 40px 60px rgba(0,0,0,0.15);   
+            pointer-events: none;
+            z-index: 2; 
+        }
+
+        /* NAVEGACIÓN (ENCABEZADO LIMPIO SIN RELLENO BLANCO) */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -41,16 +83,23 @@
             padding: 20px 50px;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 3; 
         }
 
         .logo-nav {
             font-family: 'Fredoka', sans-serif;
             font-weight: 700;
             color: #1e2a5e;
-            font-size: 22px;
+            font-size: 24px;
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .logo-nav:hover {
+            animation: wiggle 0.5s ease-in-out;
         }
 
         .nav-links {
@@ -58,60 +107,71 @@
             list-style: none;
             gap: 30px;
             align-items: center;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 15px;
+            font-weight: 600;
             color: #1e2a5e;
         }
 
         .nav-links li {
             cursor: pointer;
+            transition: color 0.3s;
+        }
+        .nav-links li:hover {
+            color: #ff5c8d;
         }
 
         .nav-active {
             background-color: #ffde59;
-            padding: 6px 16px;
-            border-radius: 20px;
+            padding: 8px 20px;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(255, 222, 89, 0.4);
+            transition: all 0.3s;
+        }
+        .nav-active:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 222, 89, 0.6);
         }
 
         .profile-icon {
             background-color: #ff8fab;
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 18px;
+            font-size: 20px;
             cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 143, 171, 0.4);
+            transition: transform 0.3s;
+        }
+        .profile-icon:hover {
+            transform: scale(1.1) rotate(10deg);
         }
 
         /* HERO - CABECERA */
         .hero {
             text-align: center;
-            padding: 40px 20px 20px;
+            padding: 40px 20px 10px;
             position: relative;
             max-width: 900px;
             margin: 0 auto;
-            z-index: 2;
+            z-index: 3; 
         }
 
         .decor {
             position: absolute;
-            font-size: 70px;
             user-select: none;
+            pointer-events: none;
+            animation: flotar 4s ease-in-out infinite;
         }
+        .cloud { top: -10px; left: 5%; animation-duration: 5s; font-size: 65px; opacity: 0.8; }
+        .sun { top: -30px; right: 5%; animation-duration: 6s; font-size: 75px; }
+        .star1 { top: 50%; left: -20px; font-size: 25px; animation-duration: 3s; }
+        .star2 { top: 30%; right: -20px; font-size: 35px; animation-duration: 4.5s; }
 
-        .cloud {
-            top: 20px;
-            left: 5%;
-        }
-
-        .sun {
-            top: -10px;
-            right: 5%;
-        }
-
+        /* TÍTULO CON EFECTO 3D */
         .titulo-principal {
             font-family: 'Fredoka', sans-serif;
             font-size: 100px;
@@ -120,162 +180,242 @@
             margin-bottom: 10px;
         }
 
-        /* Colores de "Diario" */
-        .titulo-principal span:nth-child(1) { color: #ff5c8d; } /* D */
-        .titulo-principal span:nth-child(2) { color: #ff9e43; } /* i */
-        .titulo-principal span:nth-child(3) { color: #a2d959; } /* a */
-        .titulo-principal span:nth-child(4) { color: #5ac8fa; } /* r */
-        .titulo-principal span:nth-child(5) { color: #b682e8; } /* i */
-        .titulo-principal span:nth-child(6) { color: #ffca28; } /* o */
-
-        .de-campo {
-            display: block;
-            color: #1e2a5e; /* Azul oscuro */
+        .titulo-principal span {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), text-shadow 0.3s;
+            cursor: default;
+            text-shadow: 
+                1px 1px 0 var(--shadow),
+                2px 2px 0 var(--shadow),
+                3px 3px 0 var(--shadow),
+                4px 4px 0 var(--shadow),
+                5px 5px 0 var(--shadow),
+                6px 6px 10px rgba(0,0,0,0.15);
         }
 
+        .titulo-principal span:hover {
+            transform: translateY(-15px) scale(1.1) rotate(6deg);
+            text-shadow: 
+                1px 1px 0 var(--shadow),
+                2px 2px 0 var(--shadow),
+                3px 3px 0 var(--shadow),
+                4px 4px 0 var(--shadow),
+                5px 5px 0 var(--shadow),
+                6px 6px 0 var(--shadow),
+                7px 7px 0 var(--shadow),
+                8px 8px 0 var(--shadow),
+                12px 12px 15px rgba(0,0,0,0.25);
+        }
+
+        .titulo-principal span:nth-child(1) { color: #ff5c8d; --shadow: #d13665; }
+        .titulo-principal span:nth-child(2) { color: #ff9e43; --shadow: #cc7828; }
+        .titulo-principal span:nth-child(3) { color: #a2d959; --shadow: #7ca840; }
+        .titulo-principal span:nth-child(4) { color: #5ac8fa; --shadow: #3c9bcd; }
+        .titulo-principal span:nth-child(5) { color: #b682e8; --shadow: #8c5cbd; }
+        .titulo-principal span:nth-child(6) { color: #ffca28; --shadow: #d6a411; }
+
+        .de-campo {
+            display: inline-block;
+            color: #1e2a5e; 
+            font-size: 75px;
+            transition: transform 0.3s, text-shadow 0.3s;
+            text-shadow: 
+                1px 1px 0 #10183b,
+                2px 2px 0 #10183b,
+                3px 3px 0 #10183b,
+                4px 4px 0 #10183b,
+                5px 5px 10px rgba(255,255,255,0.8);
+        }
+        
+        .de-campo:hover {
+            transform: scale(1.02) rotate(-2deg);
+        }
+
+        /* TEXTOS DEL HERO SIN FONDO BLANCO */
         .subtitulo {
             color: #9b51e0;
             font-size: 22px;
             font-weight: 600;
             margin-top: 15px;
+            display: inline-block;
+            text-shadow: 0px 0px 8px rgba(255,255,255,0.9), 1px 1px 2px rgba(255,255,255,0.8);
         }
 
         .frase {
-            color: #666;
+            color: #555;
             font-size: 16px;
-            margin-top: 10px;
+            margin-top: 12px;
+            font-style: italic;
+            display: inline-block;
+            text-shadow: 0px 0px 8px rgba(255,255,255,0.9), 1px 1px 2px rgba(255,255,255,0.8);
         }
 
-        /* ONDA (WAVE SVG) */
-        .wave {
+        /* ========================================= */
+        /* ONDA (Máscara CSS limpia)                 */
+        /* ========================================= */
+        .wave-container {
             position: absolute;
-            bottom: -5px;
+            bottom: -2px; 
             left: 0;
             width: 100%;
-            line-height: 0;
+            height: 120px;
+            z-index: 10;
         }
-        .wave svg {
-            display: block;
+
+        .wave {
             width: 100%;
-            height: auto;
+            height: 100%;
+            background-image: url('Gemini_Generated_Image_fhc8jxfhc8jxfhc8.png');
+            background-size: cover;
+            background-position: top center;
+            background-attachment: fixed; 
+
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'%3E%3Cpath d='M0,128L60,117.3C120,107,240,85,360,96C480,107,600,149,720,165.3C840,181,960,171,1080,149.3C1200,128,1320,96,1380,80L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'%3E%3Cpath d='M0,128L60,117.3C120,107,240,85,360,96C480,107,600,149,720,165.3C840,181,960,171,1080,149.3C1200,128,1320,96,1380,80L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'/%3E%3C/svg%3E");
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
         }
 
         /* ========================================= */
-        /* SECCIÓN INFERIOR (Fondo Verde Agua)       */
+        /* SECCIÓN INFERIOR (Fondo de Fieltro Verde) */
         /* ========================================= */
         .bottom-section {
-            padding: 60px 20px;
+            padding: 60px 20px 100px;
             text-align: center;
+            position: relative;
+            background-color: #4caf50;
+            background-image: url('Gemini_Generated_Image_fhc8jxfhc8jxfhc8.png');
+            background-size: cover;
+            background-position: top center;
+            background-attachment: fixed;
+            z-index: 1;
+            /* Se ha eliminado por completo cualquier box-shadow de esta sección */
         }
 
         .seccion-titulo {
             font-family: 'Fredoka', sans-serif;
-            color: #1e2a5e;
-            font-size: 28px;
-            margin-bottom: 40px;
+            color: #ffffff; 
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+            font-size: 34px;
+            margin-bottom: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
+            position: relative;
+            z-index: 3;
         }
         .seccion-titulo::before, .seccion-titulo::after {
             content: "✨";
-            font-size: 20px;
-            opacity: 0.7;
+            font-size: 24px;
         }
 
-        /* GRID DE TARJETAS */
+        /* CONTENEDOR DE TARJETAS */
         .cards-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            max-width: 1100px;
+            align-items: stretch; 
+            gap: 15px;
+            flex-wrap: nowrap;
+            max-width: 1300px;
             margin: 0 auto;
+            padding: 0 10px;
+            position: relative;
+            z-index: 3; 
         }
 
         .card {
             background: white;
-            border-radius: 40px;
-            width: 200px;
-            padding: 25px 20px;
+            border-radius: 30px;
+            flex: 1;
+            min-width: 180px; 
+            max-width: 240px; 
+            padding: 28px 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-            transition: transform 0.3s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15); 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 3px solid transparent;
         }
 
         .card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 16px 35px rgba(0,0,0,0.25);
         }
 
         .card-tag {
             font-family: 'Fredoka', sans-serif;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             color: white;
-            padding: 6px 25px;
+            padding: 6px 18px;
             border-radius: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .card-icon {
-            font-size: 65px;
-            margin-bottom: 15px;
+            font-size: 60px;
+            margin-bottom: 12px;
+            transition: transform 0.3s;
+        }
+        .card:hover .card-icon {
+            transform: scale(1.15) rotate(4deg);
         }
 
         .card-text {
             font-size: 13px;
             color: #555;
             flex-grow: 1;
-            margin-bottom: 20px;
-            line-height: 1.4;
+            margin-bottom: 22px;
+            line-height: 1.5;
         }
 
         .btn {
             text-decoration: none;
             color: white;
-            padding: 10px 25px;
+            padding: 10px 24px;
             border-radius: 20px;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 14px;
-            transition: 0.2s;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
-        /* COLORES ESPECÍFICOS DE CADA TARJETA */
-        .c1 { background: #fffdf5; }
-        .c1 .card-tag, .c1 .btn { background: #ffb703; }
-
-        .c2 { background: #f0fbf4; }
-        .c2 .card-tag, .c2 .btn { background: #4caf50; }
-
-        .c3 { background: #f0f8ff; }
-        .c3 .card-tag, .c3 .btn { background: #29b6f6; }
-
-        .c4 { background: #fff5f8; }
-        .c4 .card-tag, .c4 .btn { background: #ec407a; }
-
-        .c5 { background: #fff8f2; }
-        .c5 .card-tag, .c5 .btn { background: #ff8500; }
+        /* COLORES DE LAS TARJETAS */
+        .c1 { border-color: #ffb703; } .c1 .card-tag, .c1 .btn { background: #ffb703; }
+        .c2 { border-color: #4caf50; } .c2 .card-tag, .c2 .btn { background: #4caf50; }
+        .c3 { border-color: #29b6f6; } .c3 .card-tag, .c3 .btn { background: #29b6f6; }
+        .c4 { border-color: #ec407a; } .c4 .card-tag, .c4 .btn { background: #ec407a; }
+        .c5 { border-color: #ff8500; } .c5 .card-tag, .c5 .btn { background: #ff8500; }
 
         /* ========================================= */
-        /* CAJA DE INFORMACIÓN FINAL                 */
+        /* CAJA DE INFORMACIÓN Y NIÑO ASTRONAUTA     */
         /* ========================================= */
+        .info-box-wrapper {
+            position: relative;
+            max-width: 850px;
+            margin: 80px auto 0;
+            z-index: 10;
+        }
+
         .info-box {
             background: white;
-            max-width: 850px;
-            margin: 60px auto 20px;
-            border-radius: 30px;
-            padding: 30px 40px;
+            border-radius: 40px; 
+            padding: 35px 45px;
             display: flex;
             align-items: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             text-align: left;
-            gap: 20px;
+            gap: 25px;
+            border: 4px dashed #ff8fab;
+            position: relative;
+            z-index: 5;
         }
 
-        .info-box .icon-left { font-size: 60px; }
+        .info-box .icon-left { font-size: 60px; animation: flotar 3s infinite; }
         .info-box .icon-right { font-size: 50px; }
         
         .info-content {
@@ -285,22 +425,37 @@
         .info-content h3 {
             color: #1e2a5e;
             font-family: 'Fredoka', sans-serif;
-            font-size: 20px;
-            margin-bottom: 5px;
+            font-size: 22px;
+            margin-bottom: 6px;
         }
 
         .info-content p {
-            color: #666;
-            font-size: 13px;
-            line-height: 1.5;
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .mascot-astronaut {
+            position: absolute;
+            width: 180px; 
+            bottom: -30px;
+            right: -50px; 
+            z-index: 100;
+            pointer-events: none;
+            animation: flotar 4s ease-in-out infinite;
         }
 
         /* RESPONSIVE */
+        @media(max-width: 1024px) {
+            .cards-container { flex-wrap: wrap; }
+            .mascot-astronaut { right: 0; }
+        }
         @media(max-width: 768px) {
             .navbar { flex-direction: column; gap: 15px; }
             .titulo-principal { font-size: 60px; }
+            .de-campo { font-size: 45px; }
             .decor { display: none; }
-            .info-box { flex-direction: column; text-align: center; }
+            .info-box { flex-direction: column; text-align: center; padding: 30px; }
         }
     </style>
 </head>
@@ -310,7 +465,7 @@
         
         <nav class="navbar">
             <div class="logo-nav">
-                <span style="font-size: 26px;">📝</span> Diario de Campo
+                <span style="font-size: 28px;">📝</span> Diario de Campo
             </div>
             <ul class="nav-links">
                 <li class="nav-active">Inicio</li>
@@ -325,20 +480,20 @@
         <div class="hero">
             <div class="decor cloud">☁️</div>
             <div class="decor sun">☀️</div>
+            <div class="decor star1">✨</div>
+            <div class="decor star2">⭐</div>
             
             <h1 class="titulo-principal">
                 <span>D</span><span>i</span><span>a</span><span>r</span><span>i</span><span>o</span>
                 <span class="de-campo">de Campo</span>
             </h1>
             
-            <p class="subtitulo">Práctica pedagogica en Educación Infantil</p>
+            <p class="subtitulo">Práctica pedagógica en Educación Infantil</p>
             <p class="frase">"Educar no es llenar mentes, es encender posibilidades." 🤍</p>
         </div>
 
-        <div class="wave">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220">
-                <path fill="#d8f3e2" fill-opacity="1" d="M0,128L60,117.3C120,107,240,85,360,96C480,107,600,149,720,165.3C840,181,960,171,1080,149.3C1200,128,1320,96,1380,80L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
-            </svg>
+        <div class="wave-container">
+            <div class="wave"></div>
         </div>
     </div>
 
@@ -351,21 +506,21 @@
             <div class="card c1">
                 <div class="card-tag">Día 1</div>
                 <div class="card-icon">🎨</div>
-                <p class="card-text">Aprendizaje didactico a traves del arte</p>
+                <p class="card-text">Aprendizaje didáctico a través del arte</p>
                 <a href="dia1.html" class="btn">Ver día ></a>
             </div>
 
             <div class="card c2">
                 <div class="card-tag">Día 2</div>
                 <div class="card-icon">🧩</div>
-                <p class="card-text">Juego y reconocimiento del nombre DBA 1(cognitivo) DBA 4(lenguaje).</p>
+                <p class="card-text">Juego y reconocimiento del nombre DBA 1 y 4.</p>
                 <a href="dia2.html" class="btn">Ver día ></a>
             </div>
 
             <div class="card c3">
                 <div class="card-tag">Día 3</div>
                 <div class="card-icon">☁️</div>
-                <p class="card-text">Estrategia de trabajo mediante rincones de trabajo(literatura y emociones).</p>
+                <p class="card-text">Estrategia mediante rincones de trabajo.</p>
                 <a href="dia3.html" class="btn">Ver día ></a>
             </div>
 
@@ -379,19 +534,23 @@
             <div class="card c5">
                 <div class="card-tag">Día 5</div>
                 <div class="card-icon">🌈</div>
-                <p class="card-text">Reconocimiento de la familia y expresión oral (Evaluación).</p>
+                <p class="card-text">Reconocimiento de la familia y expresión oral.</p>
                 <a href="dia5.html" class="btn">Ver día ></a>
             </div>
 
         </div>
 
-        <div class="info-box">
-            <div class="icon-left">🌈 </div>
-            <div class="info-content">
-                <h3>Sobre este proyecto</h3>
-                <p>Este diario de campo recopila experiencias, observaciones y aprendizajes obtenidos durante la práctica pedagógica en educación infantil, con el objetivo de reflexionar, analizar y crecer cada día más. 💜</p>
+        <div class="info-box-wrapper">
+            <div class="info-box">
+                <div class="icon-left">🚀</div>
+                <div class="info-content">
+                    <h3>Sobre este proyecto</h3>
+                    <p>Este diario de campo recopila experiencias, observaciones y aprendizajes obtenidos durante la práctica pedagógica en educación infantil, con el objetivo de reflexionar, analizar y crecer cada día más. 💜</p>
+                </div>
+                <div class="icon-right">✨</div>
             </div>
-            <div class="icon-right">🌈</div>
+
+            <img src="WhatsApp_Image_2026-05-23_at_3.02.12_PM (5).png" alt="Niño Astronauta" class="mascot-astronaut">
         </div>
 
     </div>
