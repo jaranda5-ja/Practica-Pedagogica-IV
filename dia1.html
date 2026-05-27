@@ -377,12 +377,13 @@
         .quotes-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px; /* Incrementado para que quepa bien el autor fuera */
             margin-top: 25px;
             padding-top: 25px;
             border-top: 2px solid #eee;
         }
 
+        /* Ajustado para que funcione correctamente con bloques flex externos */
         .quote {
             background: #ffde59;
             padding: 15px 25px;
@@ -390,11 +391,8 @@
             font-weight: 500;
             color: #1e2a5e;
             font-style: italic;
-            display: inline-block;
-            width: fit-content;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
-        .quote:nth-child(2) { align-self: flex-end; background: #5ac8fa; color: white;}
 
         .nav-buttons {
             display: flex;
@@ -447,7 +445,6 @@
 
     <div class="top-section">
         
-        <!-- NAVEGACIÓN -->
         <nav class="navbar">
             <a href="index.html" class="logo-nav">
                 <span style="font-size: 28px;">📝</span> Diario de Campo
@@ -457,7 +454,6 @@
             </ul>
         </nav>
 
-        <!-- CABECERA -->
         <div class="hero">
             <div class="decor cloud">☁️</div>
             <div class="decor sun">☀️</div>
@@ -471,10 +467,8 @@
             <p class="subtitulo">Aprendizaje didáctico a través del arte</p>
         </div>
 
-        <!-- CONTENIDO PRINCIPAL (Tarjetas) -->
         <div class="main-content">
             
-            <!-- Datos Generales -->
             <div class="info-card">
                 <div class="info-item">
                     <div class="info-icon">📅</div>
@@ -498,7 +492,6 @@
                 </div>
             </div>
 
-            <!-- Observación (Forzado en la columna 1, fila 2) -->
             <div class="content-card c-obs">
                 <div class="card-header">
                     <div class="icon-title">👀</div>
@@ -507,7 +500,6 @@
                 <p>La docente desarrolló una actividad enfocada en el aprendizaje mediante el arte y la exploración de figuras geométricas, donde los estudiantes organizaron figuras de diferentes tamaños y colores sobre cartulina.</p>
             </div>
 
-            <!-- Actividad (Forzado en la columna 1, fila 3 debajo de observación) -->
             <div class="content-card c-act">
                 <div class="card-header">
                     <div class="icon-title">🖍️</div>
@@ -516,14 +508,12 @@
                 <p>La docente explicó las instrucciones con claridad, usó ejemplos visuales y acompañó constantemente a los estudiantes, promoviendo la creatividad y la organización del espacio.</p>
             </div>
 
-            <!-- Fotografía Polaroid (Forzado a la columna 2, abarcando las filas 2 y 3) -->
             <div class="polaroid-wrapper">
                 <div class="polaroid">
                     <img src="Dia-1.jpg" alt="Actividad del día 1">
                 </div>
             </div>
 
-            <!-- Interacción (Abajo de todo, abarcando ambas columnas) -->
             <div class="content-card c-int">
                 <div class="card-header">
                     <div class="icon-title">🤝</div>
@@ -539,7 +529,6 @@
         </div>
     </div>
 
-    <!-- SECCIÓN INFERIOR (Reflexión) -->
     <div class="bottom-section">
         
         <div class="footer-content">
@@ -553,8 +542,25 @@
                 <p>Desde el enfoque constructivista, Jean Piaget plantea que el conocimiento se construye a partir de la interacción con el entorno. Asimismo, Lev Vygotsky resalta la importancia de la interacción social y el acompañamiento docente en el aprendizaje dentro de la zona de desarrollo próximo.</p>
 
                 <div class="quotes-container">
-                    <div class="quote">💬 "El conocimiento se construye a través de la experiencia."</div>
-                    <div class="quote">"El aprendizaje inicia en lo social y luego se interioriza." 💬</div>
+                    
+                    <div style="display: flex; flex-direction: column; width: fit-content; max-width: 90%;">
+                        <div class="quote" style="background: #ffde59; color: #1e2a5e;">
+                            <span>💬 "El conocimiento se construye a través de la experiencia."</span>
+                        </div>
+                        <small style="display: block; text-align: right; font-weight: 700; color: #1e2a5e; font-size: 15px; margin-top: 5px; padding-right: 10px; font-family: 'Fredoka', sans-serif;">
+                            — Jean Piaget
+                        </small>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; width: fit-content; max-width: 90%; align-self: flex-end;">
+                        <div class="quote" style="background: #5ac8fa; color: white;">
+                            <span>"El aprendizaje inicia en lo social y luego se interioriza." 💬</span>
+                        </div>
+                        <small style="display: block; text-align: right; font-weight: 700; color: #1e2a5e; font-size: 15px; margin-top: 5px; padding-right: 10px; font-family: 'Fredoka', sans-serif;">
+                            — Lev Vygotsky
+                        </small>
+                    </div>
+
                 </div>
             </div>
 
