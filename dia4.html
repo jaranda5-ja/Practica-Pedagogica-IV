@@ -62,9 +62,8 @@
         .reflexion-box { background: rgba(255, 255, 255, 0.9); border-radius: 35px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); margin-bottom: 30px; border: 4px dashed #a2d959; }
         .reflexion-box h3 { font-family: 'Fredoka', sans-serif; color: #1e2a5e; font-size: 24px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
         .reflexion-box p { color: #444; font-size: 15px; line-height: 1.7; margin-bottom: 20px; }
-        .quotes-container { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; padding-top: 25px; border-top: 2px solid #eee; }
-        .quote { background: #ffde59; padding: 15px 25px; border-radius: 20px; font-weight: 500; color: #1e2a5e; font-style: italic; display: inline-block; width: fit-content; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .quote:nth-child(2) { align-self: flex-end; background: #5ac8fa; color: white;}
+        .quotes-container { display: flex; flex-direction: column; gap: 20px; margin-top: 25px; padding-top: 25px; border-top: 2px solid #eee; }
+        .quote { background: #ffde59; padding: 15px 25px; border-radius: 20px; font-weight: 500; color: #1e2a5e; font-style: italic; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .nav-buttons { display: flex; justify-content: space-between; margin-top: 50px; }
         .btn-footer { background-color: white; color: #1e2a5e; text-decoration: none; padding: 15px 35px; border-radius: 30px; font-family: 'Fredoka', sans-serif; font-size: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); transition: all 0.3s; display: flex; align-items: center; gap: 10px; }
         .btn-footer:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.3); color: #ff5c8d; }
@@ -116,10 +115,28 @@
                 <h3>🌱 Reflexión pedagógica</h3>
                 <p>Esta experiencia resalta la importancia de diseñar ambientes flexibles donde el estudiante explore, interactúe y construya conocimiento desde su iniciativa. El rol del docente se enfoca en acompañar y propiciar experiencias significativas centradas en el juego, la creatividad y la interacción social.</p>
                 <h3 style="margin-top: 30px;">📚 Sustento teórico</h3>
-                <p>Desde Piaget, el juego favorece la construcción del conocimiento mediante la interacción con la realidad. Vygotsky resalta la importancia de la interacción social en el aprendizaje. Montessori enfatiza ambientes que promuevan autonomía y exploración, mientras Huizinga reconoce el juego como un elemento fundamental de la cultura.</p>
+                <p>Desde Piaget, el juego favorece la construcción del conocimiento mediante la interacción con la reality. Vygotsky resalta la importancia de la interacción social en el aprendizaje. Montessori enfatiza ambientes que promuevan autonomía y exploración, mientras Huizinga reconoce el juego como un elemento fundamental de la cultura.</p>
+                
                 <div class="quotes-container">
-                    <div class="quote">💬 "El juego es la base del aprendizaje en la infancia."</div>
-                    <div class="quote">"Aprender también es disfrutar, explorar y compartir." 💬</div>
+                    
+                    <div style="display: flex; flex-direction: column; width: fit-content; max-width: 90%;">
+                        <div class="quote" style="background: #ffde59; color: #1e2a5e;">
+                            <span>💬 "El juego es la base del aprendizaje en la infancia."</span>
+                        </div>
+                        <small style="display: block; text-align: right; font-weight: 700; color: #1e2a5e; font-size: 15px; margin-top: 5px; padding-right: 10px; font-family: 'Fredoka', sans-serif;">
+                            — Maria Montessori
+                        </small>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; width: fit-content; max-width: 90%; align-self: flex-end;">
+                        <div class="quote" style="background: #5ac8fa; color: white;">
+                            <span>"Aprender también es disfrutar, explorar y compartir." 💬</span>
+                        </div>
+                        <small style="display: block; text-align: right; font-weight: 700; color: #1e2a5e; font-size: 15px; margin-top: 5px; padding-right: 10px; font-family: 'Fredoka', sans-serif;">
+                            — Jean Piaget
+                        </small>
+                    </div>
+
                 </div>
             </div>
             <div class="nav-buttons">
