@@ -35,18 +35,24 @@
         .titulo-principal span:nth-child(3) { color: #5ac8fa; --shadow: #3c9bcd; }
         .titulo-principal span:nth-child(4) { color: #ffca28; --shadow: #d6a411; margin-left: 25px; }
         .subtitulo { color: #9b51e0; font-size: 26px; font-family: 'Fredoka', sans-serif; margin-top: 10px; text-shadow: 0px 0px 8px rgba(255,255,255,0.9), 1px 1px 2px rgba(255,255,255,0.8); }
+        
+        /* Sistema Grid Ajustado para mantener la estructura visual */
         .main-content { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; position: relative; z-index: 3; display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
         .info-card { grid-column: 1 / -1; grid-row: 1; background: white; border-radius: 30px; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 3px solid #ffde59; }
         .info-item { text-align: center; flex: 1; min-width: 150px; }
         .info-icon { font-size: 30px; margin-bottom: 5px; }
         .info-label { font-family: 'Fredoka', sans-serif; color: #ff9e43; font-size: 14px; text-transform: uppercase; }
         .info-value { font-weight: 600; color: #1e2a5e; font-size: 16px; }
+        
         .content-card { background: white; border-radius: 35px; padding: 35px 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.04); transition: all 0.3s; border: 3px solid transparent; display: flex; flex-direction: column; }
         .content-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        
+        /* Clases CSS reordenadas lógicamente */
         .c-obs { border-color: #29b6f6; background: #f0f8ff; grid-column: 1; grid-row: 2; }
         .c-act { border-color: #4caf50; background: #f0fbf4; grid-column: 1; grid-row: 3; }
-        .polaroid-wrapper { grid-column: 2; grid-row: 2 / 4; display: flex; justify-content: center; align-items: center; }
         .c-int { border-color: #ec407a; background: #fff5f8; grid-column: 1 / -1; grid-row: 4; }
+        
+        .polaroid-wrapper { grid-column: 2; grid-row: 2 / 4; display: flex; justify-content: center; align-items: center; }
         .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
         .icon-title { font-size: 35px; }
         .text-title { font-family: 'Fredoka', sans-serif; font-size: 24px; color: #1e2a5e; }
@@ -55,6 +61,7 @@
         .polaroid:hover { transform: rotate(0deg) scale(1.05); box-shadow: 0 25px 45px rgba(0,0,0,0.2); z-index: 10; }
         .polaroid img { width: 100%; height: auto; border-radius: 5px; display: block; }
         .polaroid::after { content: "🌈 Mi familia y yo"; display: block; text-align: center; font-family: 'Fredoka', sans-serif; color: #555; font-size: 18px; margin-top: 15px; }
+        
         .wave-container { position: absolute; bottom: -2px; left: 0; width: 100%; height: 120px; z-index: 10; }
         .wave { width: 100%; height: 100%; background-image: url('Gemini_Generated_Image_fhc8jxfhc8jxfhc8.png'); background-size: cover; background-position: top center; background-attachment: fixed; -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'%3E%3Cpath d='M0,128L60,117.3C120,107,240,85,360,96C480,107,600,149,720,165.3C840,181,960,171,1080,149.3C1200,128,1320,96,1380,80L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'%3E%3Cpath d='M0,128L60,117.3C120,107,240,85,360,96C480,107,600,149,720,165.3C840,181,960,171,1080,149.3C1200,128,1320,96,1380,80L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'/%3E%3C/svg%3E"); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
         .bottom-section { padding: 80px 20px 60px; position: relative; background-color: #4caf50; background-image: url('Gemini_Generated_Image_fhc8jxfhc8jxfhc8.png'); background-size: cover; background-position: top center; background-attachment: fixed; z-index: 1; }
@@ -67,7 +74,15 @@
         .nav-buttons { display: flex; justify-content: space-between; margin-top: 50px; gap: 15px; }
         .btn-footer { background-color: white; color: #1e2a5e; text-decoration: none; padding: 15px 35px; border-radius: 30px; font-family: 'Fredoka', sans-serif; font-size: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); transition: all 0.3s; display: flex; align-items: center; gap: 10px; }
         .btn-footer:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.3); color: #ff5c8d; }
-        @media(max-width: 900px) { .main-content { display: flex; flex-direction: column; } .info-card { order: 1; } .polaroid-wrapper { order: 2; margin-bottom: 10px; } .c-obs { order: 3; } .c-act { order: 4; } .c-int { order: 5; } }
+        
+        @media(max-width: 900px) { 
+            .main-content { display: flex; flex-direction: column; } 
+            .info-card { order: 1; } 
+            .c-obs { order: 2; } 
+            .c-act { order: 3; } 
+            .polaroid-wrapper { order: 4; margin-bottom: 10px; } 
+            .c-int { order: 5; } 
+        }
         @media(max-width: 768px) { .navbar { flex-direction: column; gap: 15px; } .titulo-principal { font-size: 80px; } .subtitulo { font-size: 20px; text-align: center; } .decor { display: none; } .nav-buttons { flex-direction: column; gap: 15px; align-items: center; } }
     </style>
 </head>
@@ -82,6 +97,7 @@
             <h1 class="titulo-principal"><span>D</span><span>Í</span><span>A</span> <span>5</span></h1>
             <p class="subtitulo">Reconocimiento de la familia y expresión oral</p>
         </div>
+        
         <div class="main-content">
             <div class="info-card">
                 <div class="info-item"><div class="info-icon">📅</div><div class="info-label">Fecha</div><div class="info-value">27 de Mayo</div></div>
@@ -89,36 +105,41 @@
                 <div class="info-item"><div class="info-icon">🎯</div><div class="info-label">Tipo</div><div class="info-value">Observación</div></div>
                 <div class="info-item"><div class="info-icon">👧</div><div class="info-label">Participante</div><div class="info-value">Valentina Caldon López</div></div>
             </div>
+
             <div class="content-card c-obs">
-                <div class="card-header"><div class="icon-title">🖍️</div><div class="text-title">Actividad</div></div>
+                <div class="card-header"><div class="icon-title">👁️‍🗨️</div><div class="text-title">Observación</div></div>
                 <p>La docente realizó una actividad sobre el reconocimiento de la familia y la expresión oral, donde los niños expusieron con carteleras quiénes conforman su familia y compartieron experiencias de su entorno cercano.</p>
             </div>
+
             <div class="content-card c-act">
-                <div class="card-header"><div class="icon-title">🤝</div><div class="text-title">Interacción</div></div>
-                <p>Durante la actividad hubo participación activa, escucha y acompañamiento de la docente para fortalecer la confianza y la comunicación de los estudiantes.</p>
+                <div class="card-header"><div class="icon-title">🖍️</div><div class="text-title">Actividad</div></div>
+                <p>Los estudiantes lograron expresar sus ideas, vivencias y emociones, fortaleciendo su capacidad comunicativa en un ambiente seguro y participativo gracias al material de apoyo visual.</p>
             </div>
+
             <div class="polaroid-wrapper">
                 <div class="polaroid">
                     <img src="Dia-5.jpg" alt="Fotos de la actividad con los niños">
                 </div>
             </div>
+
             <div class="content-card c-int">
-                <div class="card-header"><div class="icon-title">🗣️</div><div class="text-title">Expresión oral</div></div>
-                <p>Los estudiantes lograron expresar sus ideas, vivencias y emociones, fortaleciendo su capacidad comunicativa en un ambiente seguro y participativo.</p>
+                <div class="card-header"><div class="icon-title">🤝</div><div class="text-title">Interacción</div></div>
+                <p>Durante la actividad hubo participación activa, escucha y acompañamiento de la docente para fortalecer la confianza y la comunicación de los estudiantes.</p>
             </div>
         </div>
         <div class="wave-container"><div class="wave"></div></div>
     </div>
+
     <div class="bottom-section">
         <div class="footer-content">
             <div class="reflexion-box">
                 <h3>🌱 Reflexión pedagógica</h3>
                 <p>La experiencia permitió fortalecer la identidad, la expresión oral y el vínculo entre la escuela y la familia mediante aprendizajes significativos.</p>
+                
                 <h3 style="margin-top: 30px;">📚 Sustento teórico</h3>
                 <p>Según Lev Vygotsky, el aprendizaje se fortalece a través de la interacción social. Asimismo, Jerome Bruner plantea que los niños aprenden mejor desde experiencias cercanas y significativas.</p>
                 
                 <div class="quotes-container">
-                    
                     <div style="display: flex; flex-direction: column; width: fit-content; max-width: 90%;">
                         <div class="quote" style="background: #ffde59; color: #1e2a5e;">
                             <span>💬 "La familia es el primer espacio donde los niños construyen su identidad."</span>
@@ -130,15 +151,15 @@
 
                     <div style="display: flex; flex-direction: column; width: fit-content; max-width: 90%; align-self: flex-end;">
                         <div class="quote" style="background: #5ac8fa; color: white;">
-                            <span>"Aprender desde las experiencias fortalece la participación y la confianza infantil." 💬</span>
+                            <span>"Aprender desde las experiences fortalece la participación y la confianza infantil." 💬</span>
                         </div>
                         <small style="display: block; text-align: right; font-weight: 700; color: #1e2a5e; font-size: 15px; margin-top: 5px; padding-right: 10px; font-family: 'Fredoka', sans-serif;">
                             — John Dewey
                         </small>
                     </div>
-
                 </div>
             </div>
+            
             <div class="nav-buttons">
                 <a href="dia4.html" class="btn-footer">⬅ Día 4</a>
                 <a href="index.html" class="btn-footer">🏠 Inicio</a>
